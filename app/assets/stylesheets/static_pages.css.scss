@@ -1,0 +1,56 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	width: 980px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.color_line{
+	background-color: #9f1f63;
+	height:50px;
+	font-color: white;
+	a{
+	float:right;
+	font-size: 20px;
+	margin-right: 40px;
+	margin-top: 15px;
+	}
+	a:link {text-decoration:none;color: white}
+	a:visited {text-decoration:none;color: white}
+	a:hover {text-decoration:none;color: white}
+	a:active {text-decoration:none;color: white}
+}
+
+.phone_for_header{
+	float: right;
+	color: #7a7a7a;
+	font-size: 25px;
+	font-weight:bold;
+	margin: 50px 10px;
+}
+
+.header_text1{
+	color: #d2619d;
+	font-size: 40px;
+	margin: 30px;
+}
+
+.header_text2{
+	color: #9f1f63;
+	font-size: 25px;
+	margin: 5px;
+}
+
+.header_text3{
+	color: #0ca9cb;
+	font-size: 30px;
+	margin: 25px;
+}
+
+.bluebutton{
+	background-color: #0ca9cb;
+	color: white;
+	padding: 15px 35px 15px 35px;
+	font-size: 20px;
+}
