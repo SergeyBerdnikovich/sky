@@ -20,7 +20,7 @@ body {
 }
 #phone_number {
   float: right;
-  font: bold 180% 'Vollkorn', serif;
+  font: bold 180% 'PT Sans', serif;
   color: #7A7A7A;
   margin: 60px 40px 0 0;
 }
@@ -37,7 +37,7 @@ body {
   background-color: #9F1F63;
 }
 #login span {
-  font: bold 110% 'Vollkorn', serif;
+  font: bold 110% 'PT Sans', serif;
   color: white;
   float: right;
   margin-right: 10px;
@@ -83,7 +83,7 @@ body {
   background-color: #9F1F63;
   text-align: center;
   text-transform: uppercase;
-  font: bold 140% 'Vollkorn', serif;
+  font: bold 140% 'PT Sans', serif;
   position: relative;
   float: left;
 }
@@ -105,7 +105,7 @@ body {
   color: white;
   padding-left: 250px;
   padding-top: 7px;
-  font: 12px 'Vollkorn', serif;
+  font: 12px 'PT Sans', serif;
 }
 #footer {
   height: 100px;
