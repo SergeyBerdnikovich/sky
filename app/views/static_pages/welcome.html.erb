@@ -1,10 +1,8 @@
-<center>
-<div class="header_text1">GET LAWN SERVICE TODAY!</div>
-<div class="header_text2">fast.  professional.  guaranteed.</div>
-<div class="header_text3">Select your property type to get started!</div>
-<%= image_tag("bird.gif") %><br>
-
-<%= link_to '<span style="margin-left:200px;float:left" class="bluebutton">Resedential</span>'.html_safe, new_user_registration_path %>
-<%= link_to '<span style="margin-right:210px;float:right" class="bluebutton">Commercical</span>'.html_safe, new_user_registration_path %>
-
-</center>
+<div><h1>GET LAWN SERVICE TODAY!</h1></div>
+<div><span id='text_1'>fast.  professional.  guaranteed.</span></div>
+<div><span id='text_2'>Select your property type to get started!</span></div>
+<div id='bird_image'>
+  <%= image_tag("bird.gif") %>
+</div>
+<%= link_to 'Residential', '#', :class => 'blue_button', :id => 'residential_btn' %>
+<%= link_to 'Commercial', '#', :class => 'blue_button', :id => 'commercial_btn' %>

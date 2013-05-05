@@ -5,19 +5,55 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rye">
 </head>
 <body>
-<%= link_to (image_tag("logo.gif")), root_path %>
-<span class=phone_for_header>✆ 1-800-799-8585</span>
-<div class="color_line">
-<% if user_signed_in? %>
-<%= link_to "Log out", destroy_user_session_path, :method=>:delete %>
-<% else %>
-<%= link_to "log in", new_user_session_path %>
-<% end %>
-</div>
-
-<%= yield %>
-
+  <div id='container'>
+    <div id='header'>
+      <div id='logo'>
+        <%= image_tag '/assets/logo.gif' %>
+      </div>
+      <div id='phone_number'>
+        <span>✆ 1-800-799-8585</span>
+      </div>
+    </div>
+    <div id='center_zone'>
+      <div id='header_menu'>
+        <div id='login'>
+          <span><%= render 'layouts/header_menu' %></span>
+        </div>
+      </div>
+      <div id='content'>
+        <%= yield %>
+      </div>
+      <div id='grass'>
+        <%= image_tag '/assets/grass.png' %>
+        <span>"My yard looks wonderful! We will use again!"- Hallee</span>
+      </div>
+      <div id='about_us'>
+        <div id='about_title'>
+          <span><span>About us</span></span>
+        </div>
+        <div id='about_content'>
+          We provide residential and commercial lawncare services through our nationwide network of approved vendors to homeowners, apartment managers, banks, property owners, realtors, and commercial management companies. We make it easy to schedule recurring lawn care services at competitive rates so you can relax with peace of mind.
+        </div>
+      </div>
+      <div id='footer'>
+        <div id='static_pages'>
+          <%= render 'layouts/static_pages' %>
+        </div>
+        <div id='vendor'>
+          <ul>
+            <li>Become a Vendor</li>
+            <li>Vendor Application</li>
+          </ul>
+        </div>
+        <div id='social'>
+          <%= image_tag '/assets/social.png' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

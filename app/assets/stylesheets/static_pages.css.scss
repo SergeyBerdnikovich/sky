@@ -1,56 +1,36 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-	width: 980px;
-	margin-left:auto;
-	margin-right:auto;
+#content {
+	text-align: center;
 }
-.color_line{
-	background-color: #9f1f63;
-	height:50px;
-	font-color: white;
-	a{
-	float:right;
-	font-size: 20px;
-	margin-right: 40px;
-	margin-top: 15px;
-	}
-	a:link {text-decoration:none;color: white}
-	a:visited {text-decoration:none;color: white}
-	a:hover {text-decoration:none;color: white}
-	a:active {text-decoration:none;color: white}
+#content h1 {
+	color: #D2619D;
+	font: bold 270% 'Rye', serif;
+	line-height: 60%;
 }
-
-.phone_for_header{
-	float: right;
-	color: #7a7a7a;
-	font-size: 25px;
-	font-weight:bold;
-	margin: 50px 10px;
+span#text_1 {
+	color: #9F1F63;
+	font: 200% 'Rye', serif;
+	line-height: 10%;
 }
-
-.header_text1{
-	color: #d2619d;
-	font-size: 40px;
-	margin: 30px;
+span#text_2 {
+	color: #0CA9CB;
+	font: 240% 'Rye', serif;
 }
-
-.header_text2{
-	color: #9f1f63;
-	font-size: 25px;
-	margin: 5px;
-}
-
-.header_text3{
-	color: #0ca9cb;
-	font-size: 30px;
-	margin: 25px;
-}
-
-.bluebutton{
-	background-color: #0ca9cb;
-	color: white;
+.blue_button {
+	background-color: #0CA9CB;
 	padding: 15px 35px 15px 35px;
-	font-size: 20px;
+}
+.blue_button:hover {
+	background-color: #9F1F63;
+}
+a.blue_button {
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	font: bold 150% serif;
+}
+#residential_btn {
+	margin-right: 170px;
+}
+#bird_image img {
+	margin: 10px auto;
 }
