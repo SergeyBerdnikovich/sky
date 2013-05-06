@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
   has_one :account_type
   has_one :role
   has_one :profile
+
 end

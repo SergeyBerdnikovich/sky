@@ -1,19 +1,46 @@
-<h2>Sign up</h2>
+<h2 id='step_0'>Step 0: Create Account</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div>Please select Account Type:<br />
-  <%= select_tag "Account type", options_from_collection_for_select(AccountType.all, "id", "name")%></div>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div id='signup'>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <table>
+      <tr>
+        <td rowspan="2" class='title'>Account Type:</td>
+        <td><%= select_tag "Account type", options_from_collection_for_select(AccountType.all, "id", "name"), :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='small'>Relationshipto property (i.e. Homeowner, Property Manager, etc.)</td>
+      </tr>
+      <tr>
+        <td rowspan="2" class='title'><%= f.label :email %>*</td>
+        <td><%= f.email_field :email, :autofocus => true, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='small'>Your email address.</td>
+      </tr>
+      <tr>
+        <td rowspan="2" class='title'><%= f.label :password %>*</td>
+        <td><%= f.password_field :password, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='small'>Enter a password for yourself.</td>
+      </tr>
+      <tr>
+        <td rowspan="2" class='title'>Confirm Password*</td>
+        <td><%= f.password_field :password_confirmation, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='small'>Repeat the password for confirmation.</td>
+      </tr>
+    </table>
+    <hr />
+    <div id='signup_login'>
+      Already have an account? You may <%= link_to 'login', new_user_session_path %> here.
+    </div>
+</div>
+    <div><%= f.submit "Done", :class => 'blue_button' %></div>
+  <% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>

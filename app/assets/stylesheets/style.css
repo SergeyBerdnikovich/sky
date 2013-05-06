@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #fafafa;
+  font-family: 'PT Sans', sans-serif;
 }
 #container {
   width: 999px;
@@ -83,7 +84,7 @@ body {
   background-color: #9F1F63;
   text-align: center;
   text-transform: uppercase;
-  font: bold 140% 'PT Sans', serif;
+  font: bold 170% 'PT Sans', serif;
   position: relative;
   float: left;
 }
@@ -103,8 +104,7 @@ body {
 #about_content {
   height: 100%;
   color: white;
-  padding-left: 250px;
-  padding-top: 7px;
+  padding: 7px 5px 2px 250px;
   font: 12px 'PT Sans', serif;
 }
 #footer {
@@ -143,4 +143,82 @@ body {
 #copyright {
   text-align: center;
   margin-bottom: 30px;
+}
+
+/*Devise*/
+#signup {
+  width: 600px;
+  margin: 10px auto;
+  border: 1px solid #ECECEC;
+  text-align: left;
+  padding: 25px;
+  color: #B5B5B5;
+}
+#step_0 {
+  color: #0CA9CB;
+  font: 32px 'PT Sans', serif;
+  line-height: 50%;
+}
+input.blue_button {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font: bold 150% 'PT Sans', serif;
+}
+input.blue_button {
+  background-color: #0CA9CB;
+  padding: 15px 65px 15px 65px;
+  margin-bottom: 70px;
+}
+#signup td.small {
+  font: 90% 'PT Sans', sans-serif;
+  line-height: 50%;
+  padding-bottom: 15px;
+}
+#signup td.title {
+  text-align: right;
+  padding: 0 10px 15px 15px;
+  font: bold 12px 'PT Sans', serif;
+}
+input.text {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+  color: #424242 !important;
+  font-size: 0.9em;
+  padding: 6px 11px;
+  transition: all 400ms ease-out 0s;
+  width: 300px;
+}
+.text:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+select.text {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+  color: #424242 !important;
+  font-size: 0.9em;
+  padding: 6px 11px;
+  transition: all 400ms ease-out 0s;
+  width: 324px;
+}
+#signup hr {
+  color: #F0F0F0;
+  width: 360px;
+  height: 1px;
+  border: 1px solid #F0F0F0;
+}
+#signup_login {
+  width: 300px;
+  margin: 0 auto;
+  font: bold 12px 'PT Sans', serif;
+}
+#signup_login a {
+  color: #0CA9CB;
+  text-decoration: none;
+}
+#signup_login a:hover {
+  color: #9F1F63;
+  background: none;
 }
