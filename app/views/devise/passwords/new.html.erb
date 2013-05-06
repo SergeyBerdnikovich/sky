@@ -1,6 +1,6 @@
-<h2 id='step_0'>Forgot your password?</h2>
+<h2 id='step'>Forgot your password?</h2>
 
-<div id='signup'>
+<div id='border_content'>
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
     <%= devise_error_messages! %>
     <table>
@@ -17,6 +17,6 @@
 </div>
     <div><%= f.submit "Send me reset password instructions", :class => 'blue_button' %></div>
   <% end %>
-<div id='signup_bird'>
+<div id='footer_bird'>
   <%= image_tag '/assets/bird.png' %>
 </div>

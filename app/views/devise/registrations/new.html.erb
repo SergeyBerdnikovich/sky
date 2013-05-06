@@ -1,13 +1,13 @@
-<h2 id='step_0'>Step 0: Create Account</h2>
+<h2 id='step'>Step 0: Create Account</h2>
 
-<div id='signup'>
+<div id='border_content'>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <table>
       <tr>
         <td rowspan="2" class='title'>Account Type:</td>
-        <td><%= select_tag "Account type", options_from_collection_for_select(AccountType.all, "id", "name"), :class => 'text' %></td>
+        <td><%= f.select :account_type_id, options_from_collection_for_select(AccountType.all, "id", "name"), :class => 'text' %></td>
       </tr>
       <tr>
         <td class='small'>Relationshipto property (i.e. Homeowner, Property Manager, etc.)</td>
@@ -41,7 +41,7 @@
 </div>
     <div><%= f.submit "Done", :class => 'blue_button' %></div>
   <% end %>
-<div id='signup_bird'>
+<div id='footer_bird'>
   <%= image_tag '/assets/bird.png' %>
 </div>
 

@@ -1,6 +1,6 @@
-<h2 id='step_0'>Sign In</h2>
+<h2 id='step'>Sign In</h2>
 
-<div id='signup'>
+<div id='border_content'>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
@@ -34,6 +34,6 @@
 </div>
     <div><%= f.submit "Sign in", :class => 'blue_button' %></div>
   <% end %>
-<div id='signup_bird'>
+<div id='footer_bird'>
   <%= image_tag '/assets/bird.png' %>
 </div>

@@ -144,9 +144,11 @@ body {
   text-align: center;
   margin-bottom: 30px;
 }
-
+.edit_order {
+  padding: 25px 40px;
+}
 /*Devise*/
-#signup {
+#border_content {
   width: 600px;
   margin: 10px auto;
   border: 1px solid #ECECEC;
@@ -154,7 +156,7 @@ body {
   padding: 25px;
   color: #B5B5B5;
 }
-#step_0 {
+#step {
   color: #0CA9CB;
   font: 32px 'PT Sans', serif;
   line-height: 50%;
@@ -170,14 +172,19 @@ input.blue_button {
   padding: 15px 65px 15px 65px;
   margin-bottom: 70px;
 }
-#signup td.small {
+#border_content td.small {
   font: 90% 'PT Sans', sans-serif;
   line-height: 50%;
   padding-bottom: 15px;
 }
-#signup td.title {
+#border_content td.title {
   text-align: right;
   padding: 0 10px 15px 15px;
+  font: bold 12px 'PT Sans', serif;
+}
+#border_content td.order_title {
+  text-align: right;
+  padding: 0 10px 5px 15px;
   font: bold 12px 'PT Sans', serif;
 }
 input.text {
@@ -203,7 +210,7 @@ select.text {
   transition: all 400ms ease-out 0s;
   width: 324px;
 }
-#signup hr {
+#border_content hr {
   color: #F0F0F0;
   width: 360px;
   height: 1px;
@@ -214,18 +221,15 @@ select.text {
   margin: 0 auto;
   font: bold 12px 'PT Sans', serif;
 }
-#signup a {
+#border_content a {
   color: #0CA9CB;
   text-decoration: none;
 }
-#signup a:hover {
+#border_content a:hover {
   color: #9F1F63;
   background: none;
 }
-#signup_bird {
-
-}
-#signup_bird img {
+#footer_bird img {
   position: relative;
   z-index: 100;
   left: 380px;

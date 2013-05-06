@@ -1,0 +1,40 @@
+<h2 id='step'>Step 1: Enter the property address</h2>
+
+<div id='border_content' class='edit_order'>
+  <%= form_for @order do |f| %>
+    <table>
+      <tr>
+        <td rowspan="2" class='title'>Address Line1:</td>
+        <td><%= f.text_field :address1, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='small'>Street address, P.O. box, company name, c/o</td>
+      </tr>
+      <tr>
+        <td rowspan="2" class='title'>Address Line2:</td>
+        <td><%= f.text_field :address2, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='small'>Apartment, suite, unit, building, floor, etc.</td>
+      </tr>
+      <tr>
+        <td class='order_title'><%= f.label :city %>:</td>
+        <td><%= f.text_field :city, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='order_title'><%= f.label :stat %>:</td>
+        <td><%= f.text_field :stat, :class => 'text' %></td>
+      </tr>
+      <tr>
+        <td class='order_title'><%= f.label :zip %>:</td>
+        <td><%= f.text_field :zip, :class => 'text' %></td>
+      </tr>
+    </table>
+</div>
+    <div><%= f.submit "Next", :class => 'blue_button' %></div>
+  <% end %>
+<div id='footer_bird'>
+  <%= image_tag '/assets/bird.png' %>
+</div>
+
+
