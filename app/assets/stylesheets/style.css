@@ -214,11 +214,26 @@ select.text {
   margin: 0 auto;
   font: bold 12px 'PT Sans', serif;
 }
-#signup_login a {
+#signup a {
   color: #0CA9CB;
   text-decoration: none;
 }
-#signup_login a:hover {
+#signup a:hover {
   color: #9F1F63;
   background: none;
+}
+#signup_bird {
+
+}
+#signup_bird img {
+  position: relative;
+  z-index: 100;
+  left: 380px;
+  top: 45px;
+}
+hr#signin {
+  margin-left: 100px;
+}
+hr#forgot_pas {
+  margin-left: 60px;
 }
