@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
-    edit_order_path(current_user.profile.order.id)
+    profiles_wizard1_path(:id => current_user.properties.first.profile.id)
   end
 end

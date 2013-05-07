@@ -1,0 +1,8 @@
+step 3 schedule
+<%= form_for @schedule do |f| %>
+  <%= f.hidden_field :order_id %>
+  <p>Name: <%= f.text_field :name %></p>
+  <p>Period: <%= f.text_field :period %></p>
+
+  <%= f.submit %>
+<% end %>

@@ -28,9 +28,14 @@ class OrdersController < ApplicationController
     end
   end
 
+  def wizard4
+
+  end
+
 
   def wizard2
-    #@order = Order.find(params[:id])
+    @profile = Profile.find(params[:id])
+    @vendors_zips = VendorsZip.where(:zip => @profile.zip)
   end
 
   def update
@@ -38,10 +43,10 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        format.html { redirect_to orders_wizard2_path(@order), notice: 'Order was successfully updated.' }
+        format.html { redirect_to schedules_wizard3_path(:id => @order.id), notice: 'Order was successfully updated.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'edit' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

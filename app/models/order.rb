@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
-  attr_accessible :address1, :address2, :city, :profile_id, :plan_id, :stat, :zip
+  attr_accessible :property_id, :vendor_id
 
   has_one :schedule
-  belongs_to :plan
-  belongs_to :profile
+  belongs_to :property
+  belongs_to :vendor
 end

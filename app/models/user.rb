@@ -10,13 +10,19 @@ class User < ActiveRecord::Base
                   :account_type_id, :property_type_id
   # attr_accessible :title, :body
   belongs_to :account_type
-  has_one :profile, :dependent => :destroy
+  has_one :profile, as: :profilable
   has_and_belongs_to_many :roles
+  has_many :properties, :dependent => :destroy
+  has_one :vendor
 
   after_create :create_profile
+  after_create :create_property
 
   def create_profile
     self.profile = Profile.create!
   end
 
+  def create_property
+    self.properties << Property.create!
+  end
 end
