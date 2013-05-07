@@ -13,20 +13,20 @@ class OrdersController < ApplicationController
   end
 
   def create
-   @order = Order.new(params[:post])
- 
-  respond_to do |format|
-    if @order.save
-      format.html  { redirect_to orders_wizard2_path(@order), notice: 'Order was successfully updated.'}
-      format.json  { render :json => @order,
-                    :status => :created, :location => @order }
-    else
-      format.html  { render :action => "new" }
-      format.json  { render :json => @order.errors,
-                    :status => :unprocessable_entity }
+    @order = Order.new(params[:post])
+
+    respond_to do |format|
+      if @order.save
+        format.html  { redirect_to orders_wizard2_path(@order), notice: 'Order was successfully updated.'}
+        format.json  { render :json => @order,
+                      :status => :created, :location => @order }
+      else
+        format.html  { render :action => "new" }
+        format.json  { render :json => @order.errors,
+                      :status => :unprocessable_entity }
+      end
     end
   end
-end
 
 
   def wizard2
