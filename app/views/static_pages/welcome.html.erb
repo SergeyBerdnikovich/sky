@@ -4,5 +4,10 @@
 <div id='bird_image'>
   <%= image_tag("bird.gif") %>
 </div>
-<%= link_to 'Residential', new_user_registration_path, :class => 'blue_button', :id => 'residential_btn' %>
-<%= link_to 'Commercial', new_user_registration_path, :class => 'blue_button', :id => 'commercial_btn' %>
+<% if user_signed_in? %>
+<%= link_to 'Residential', new_order_path(:account_type => 1), :class => 'blue_button', :id => 'residential_btn' %>
+<%= link_to 'Commercial', new_order_path(:account_type => 1), :class => 'blue_button', :id => 'commercial_btn' %>
+<% else %>
+<%= link_to 'Residential', new_user_registration_path(:account_type => 1), :class => 'blue_button', :id => 'residential_btn' %>
+<%= link_to 'Commercial', new_user_registration_path(:account_type => 1), :class => 'blue_button', :id => 'commercial_btn' %>
+<% end %>

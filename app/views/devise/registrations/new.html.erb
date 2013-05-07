@@ -7,7 +7,7 @@
     <table>
       <tr>
         <td rowspan="2" class='title'>Account Type:</td>
-        <td><%= f.select :account_type_id, options_from_collection_for_select(AccountType.all, "id", "name"), :class => 'text' %></td>
+        <td><%= f.select :property_type_id, options_from_collection_for_select(PropertyType.all, "id", "name"), :class => 'text' %></td>
       </tr>
       <tr>
         <td class='small'>Relationshipto property (i.e. Homeowner, Property Manager, etc.)</td>
