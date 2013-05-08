@@ -2,6 +2,7 @@
 
 <div id='border_content' class='edit_order'>
   <%= form_for @profile do |f| %>
+    <%= hidden_field_tag :redirect_to, 'wizard2' %>
     <table>
       <tr>
         <td rowspan="2" class='title'>Address Line1:</td>
