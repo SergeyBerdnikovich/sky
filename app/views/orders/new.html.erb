@@ -1,41 +1,42 @@
-<h2 id='step'>Step 1: Enter the property address</h2>
+<h2 id='step'>New Order</h2>
 
 <div id='border_content' class='edit_order'>
   <%= form_for @order do |f| %>
-  <%= f.hidden_field :account_type_id, :value => params[:account_type] %>
+  <%= f.hidden_field :property_id %>
+  <%= hidden_field_tag :redirect_to, 'order' %>
     <table>
       <tr>
-        <td rowspan="2" class='title'>Address Line1:</td>
-        <td><%= f.text_field :address1, :class => 'text' %></td>
+        <td class='order_title'><%= f.label :size %>:</td>
+        <td><%= f.text_field :size, :class => 'text' %></td>
       </tr>
       <tr>
-        <td class='small'>Street address, P.O. box, company name, c/o</td>
+        <td class='order_title'><%= f.label :start_date %>:</td>
+        <td><%= f.text_field :start_date, :class => 'text', :id => 'datepicker' %></td>
       </tr>
       <tr>
-        <td rowspan="2" class='title'>Address Line2:</td>
-        <td><%= f.text_field :address2, :class => 'text' %></td>
+        <td class='order_title'><%= f.label :vendor_id %>:</td>
+        <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+          <td>
+            <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %> <%= vendor_zip.vendor.user.profile.name %>
+          </td>
+        <% end %>
       </tr>
       <tr>
-        <td class='small'>Apartment, suite, unit, building, floor, etc.</td>
-      </tr>
-      <tr>
-        <td class='order_title'><%= f.label :city %>:</td>
-        <td><%= f.text_field :city, :class => 'text' %></td>
-      </tr>
-      <tr>
-        <td class='order_title'><%= f.label :stat %>:</td>
-        <td><%= f.text_field :stat, :class => 'text' %></td>
-      </tr>
-      <tr>
-        <td class='order_title'><%= f.label :zip %>:</td>
-        <td><%= f.text_field :zip, :class => 'text' %></td>
+        <td class='order_title'><%= f.label :comment %>:</td>
+        <td><%= f.text_area :comment, :class => 'text' %></td>
       </tr>
     </table>
 </div>
-    <div><%= f.submit "Next", :class => 'blue_button' %></div>
+    <div><%= f.submit "Create", :class => 'blue_button' %></div>
   <% end %>
 <div id='footer_bird'>
   <%= image_tag '/assets/bird.png' %>
 </div>
 
-
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+  });
+</script>

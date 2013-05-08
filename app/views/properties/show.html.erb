@@ -1,5 +1,7 @@
 <h1>Property show</h1>
 <p>User email: <%= @property.user.email %></p>
+<p>Size: <%= @property.size %></p>
+
 <p><%= link_to 'Edit Property', edit_property_path(@property) %></p>
 <p><%= link_to 'Property Profile', profile_path(@property.profile) %></p>
-<p><%= link_to 'Property Order', order_path(@property.order) %></p>
+<p><%= link_to 'Property Order', orders_path(:id => @property.id) %></p>

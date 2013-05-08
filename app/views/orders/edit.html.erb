@@ -1,19 +1,29 @@
-<h2 id='step'>Edit Order</h2>
+<h2 id='step'>New Order</h2>
 
 <div id='border_content' class='edit_order'>
   <%= form_for @order do |f| %>
+  <%= f.hidden_field :property_id %>
+  <%= hidden_field_tag :redirect_to, 'order' %>
     <table>
       <tr>
-        <td class='order_title'><%= f.label :city %>:</td>
-        <td><%= f.text_field :city, :class => 'text' %></td>
+        <td class='order_title'><%= f.label :size %>:</td>
+        <td><%= f.text_field :size, :class => 'text' %></td>
       </tr>
       <tr>
-        <td class='order_title'><%= f.label :stat %>:</td>
-        <td><%= f.text_field :stat, :class => 'text' %></td>
+        <td class='order_title'><%= f.label :start_date %>:</td>
+        <td><%= f.text_field :start_date, :class => 'text', :id => 'datepicker' %></td>
       </tr>
       <tr>
-        <td class='order_title'><%= f.label :zip %>:</td>
-        <td><%= f.text_field :zip, :class => 'text' %></td>
+        <td class='order_title'><%= f.label :vendor_id %>:</td>
+        <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+          <td>
+            <%= f.radio_button :vendor_id, vendor_zip.vendor.id %> <%= vendor_zip.vendor.user.profile.name %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class='order_title'><%= f.label :comment %>:</td>
+        <td><%= f.text_area :comment, :class => 'text' %></td>
       </tr>
     </table>
 </div>
@@ -22,3 +32,11 @@
 <div id='footer_bird'>
   <%= image_tag '/assets/bird.png' %>
 </div>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+  });
+</script>

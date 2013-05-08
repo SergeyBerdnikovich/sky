@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        if @profile.profilable_type == 'Property' && @profile.profilable.user.properties.size < 2
+        if @profile.profilable_type == 'Property' && params[:redirect_to] == 'wizard2'
           format.html { redirect_to orders_wizard2_path(:id => @profile.id), notice: 'Profile was successfully updated.' }
         else
           format.html { redirect_to profile_path(@profile), notice: 'Profile was successfully updated.' }

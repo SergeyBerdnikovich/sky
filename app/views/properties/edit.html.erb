@@ -1,0 +1,13 @@
+<h2 id='step'>Edit Order</h2>
+
+<div id='border_content' class='edit_order'>
+  <%= form_for @property do |f| %>
+    <table>
+      <tr>
+        <td class='order_title'><%= f.label :size %>:</td>
+        <td><%= f.text_field :size, :class => 'text' %></td>
+      </tr>
+    </table>
+</div>
+    <div><%= f.submit "Update", :class => 'blue_button' %></div>
+  <% end %>

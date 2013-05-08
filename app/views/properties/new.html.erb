@@ -1,6 +1,10 @@
 <h1>New Property</h1>
 <%= form_for @property do |f| %>
   <%= f.hidden_field :user_id %>
+  <p>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </p>
 
   <%= f.submit 'Next', :class => 'blue_button' %>
 <% end %>

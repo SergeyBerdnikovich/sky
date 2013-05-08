@@ -1,23 +1,24 @@
 class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
+    @vendors_zips = VendorsZip.where(:zip => @order.property.profile.zip)
   end
 
   def new
-    @order = Order.new
-
-    respond_to do |format|
-      format.html  # new.html.erb
-      format.json  { render :json => @order }
-    end
+    @order = Order.new(:property_id => params[:id])
+    @vendors_zips = VendorsZip.where(:zip => @order.property.profile.zip)
   end
 
   def create
-    @order = Order.new(params[:post])
+    @order = Order.new(params[:order])
 
     respond_to do |format|
       if @order.save
-        format.html  { redirect_to orders_wizard2_path(@order), notice: 'Order was successfully updated.'}
+        if params[:redirect_to] == 'order'
+          format.html { redirect_to order_path(@order), notice: 'Order was successfully updated.'}
+        else
+          format.html { redirect_to orders_wizard2_path(@order), notice: 'Order was successfully updated.'}
+        end
         format.json  { render :json => @order,
                       :status => :created, :location => @order }
       else
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
   def wizard2
     @profile = Profile.find(params[:id])
     @vendors_zips = VendorsZip.where(:zip => @profile.zip)
-    @order = @profile.profilable.orders.first
+    @order = Order.create!(:property_id => @profile.profilable.id)
   end
 
   def update
@@ -44,7 +45,11 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
-        format.html { redirect_to schedules_wizard3_path(:id => @order.id), notice: 'Order was successfully updated.' }
+        if params[:redirect_to] == 'order'
+          format.html { redirect_to order_path(@order), notice: 'Order was successfully updated.'}
+        else
+          format.html { redirect_to schedules_wizard3_path(:id => @order.id), notice: 'Order was successfully updated.' }
+        end
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'edit' }
@@ -55,5 +60,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  def index
+    @orders = Order.where(:property_id => params[:id])
   end
 end
