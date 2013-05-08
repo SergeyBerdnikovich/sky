@@ -55,6 +55,7 @@ body {
 #content {
   min-height: 400px;
   margin: 10px auto;
+  padding-bottom: 75px;
 }
 #grass {
   height: 100px;

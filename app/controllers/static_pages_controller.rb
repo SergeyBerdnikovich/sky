@@ -5,4 +5,8 @@ class StaticPagesController < InheritedResources::Base
      format.html { render action: 'welcome' }
     end
   end
+
+  def myaccount
+
+  end
 end

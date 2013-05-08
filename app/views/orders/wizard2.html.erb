@@ -16,7 +16,7 @@
   <td><%= vendor_zip.vendor.user.profile.name %></td>
   <td>rating???</td>
   <td><%= vendor_zip.vendor.tarif.price %></td>
-  <%= form_for @profile.profilable.order do |f| %>
+  <%= form_for @order do |f| %>
     <%= f.hidden_field :vendor_id, :value => vendor_zip.vendor.id %>
     <td><%= f.submit 'Add Vendor' %></td>
   <% end %>

@@ -8,6 +8,6 @@
 <%= link_to 'Residential', new_order_path(:account_type => 1), :class => 'blue_button', :id => 'residential_btn' %>
 <%= link_to 'Commercial', new_order_path(:account_type => 1), :class => 'blue_button', :id => 'commercial_btn' %>
 <% else %>
-<%= link_to 'Residential', new_user_registration_path(:account_type => 1), :class => 'blue_button', :id => 'residential_btn' %>
-<%= link_to 'Commercial', new_user_registration_path(:account_type => 1), :class => 'blue_button', :id => 'commercial_btn' %>
+<%= link_to 'Residential', new_user_registration_path(:type => 'residential'), :class => 'blue_button', :id => 'residential_btn' %>
+<%= link_to 'Commercial', new_user_registration_path(:type => 'commercial'), :class => 'blue_button', :id => 'commercial_btn' %>
 <% end %>

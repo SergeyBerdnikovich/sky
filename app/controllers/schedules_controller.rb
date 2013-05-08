@@ -9,6 +9,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
+        @schedule.order.update_attributes(:start_date => params[:start_date])
         format.html  { redirect_to orders_wizard4_path(:id => @schedule.order.id), notice: 'Schedule was successfully updated.'}
         format.json  { render :json => @schedule,
                       :status => :created, :location => @schedule }

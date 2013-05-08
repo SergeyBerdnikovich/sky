@@ -6,6 +6,7 @@ Sky::Application.routes.draw do
 
 
   match '/static_pages/welcome' => "static_pages#welcome"
+  match '/static_pages/myaccount' => "static_pages#myaccount"
 
   match '/profiles/wizard1' => "profiles#wizard1"
   match '/orders/wizard2' => "orders#wizard2"
@@ -15,6 +16,8 @@ Sky::Application.routes.draw do
   resources :static_pages
 
   resources :profiles
+
+  resources :properties
 
   resources :schedules
 

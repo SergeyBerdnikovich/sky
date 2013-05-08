@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
   def wizard2
     @profile = Profile.find(params[:id])
     @vendors_zips = VendorsZip.where(:zip => @profile.zip)
+    @order = @profile.profilable.orders.first
   end
 
   def update
@@ -50,5 +51,9 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+    @order = Order.find(params[:id])
   end
 end

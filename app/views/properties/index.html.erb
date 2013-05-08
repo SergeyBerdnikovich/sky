@@ -1,0 +1,11 @@
+<h1>My Properties</h1>
+
+<% @properties.each do |property| %>
+  User email: <%= property.user.email %><br />
+  User name: <%= property.user.profile.name %><br />
+  Property name: <%= property.profile.name %><br />
+  <p><%= link_to 'Show', property_path(property) %></p><br />
+
+<% end %>
+
+<%= link_to 'Add New Property', new_property_path %>

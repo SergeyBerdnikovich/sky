@@ -1,13 +1,21 @@
-<h2 id='step'>Step 0: Create Account</h2>
+<% if params[:type] && params[:type] == 'residential' %>
+  <h2 id='step'>Step 0: Create Account</h2>
+<% else %>
+  <h2 id='step'>Creat New Account</h2>
+<% end %>
 
 <div id='border_content'>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-
+    <% if params[:type] && params[:type] == 'residential' %>
+      <%= f.hidden_field :redirect, :value => 'residential' %>
+    <% else %>
+      <%= f.hidden_field :redirect, :value => 'myaccount' %>
+    <% end %>
     <table>
       <tr>
         <td rowspan="2" class='title'>Account Type:</td>
-        <td><%= f.select :property_type_id, options_from_collection_for_select(PropertyType.all, "id", "name"), :class => 'text' %></td>
+        <td><%= f.select :account_type_id, options_from_collection_for_select(AccountType.all, "id", "name"), :class => 'text' %></td>
       </tr>
       <tr>
         <td class='small'>Relationship to property (i.e. Homeowner, Property Manager, etc.)</td>

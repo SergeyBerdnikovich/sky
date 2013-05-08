@@ -1,2 +1,0 @@
-class ProperyTypesController < ApplicationController
-end

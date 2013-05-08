@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :account_type_id, :property_type_id
+                  :account_type_id, :property_type_id, :redirect
   # attr_accessible :title, :body
   belongs_to :account_type
   has_one :profile, as: :profilable
@@ -16,13 +16,8 @@ class User < ActiveRecord::Base
   has_one :vendor
 
   after_create :create_profile
-  after_create :create_property
 
   def create_profile
     self.profile = Profile.create!
-  end
-
-  def create_property
-    self.properties << Property.create!
   end
 end

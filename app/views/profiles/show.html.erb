@@ -1,0 +1,15 @@
+<h1>Profile show</h1>
+
+<p>Profile for: <%= @profile.profilable_type %></p>
+<p>Name: <%= @profile.name %></p>
+<p>Description: <%= @profile.description %></p>
+<p>Address1: <%= @profile.address1 %></p>
+<p>Address2: <%= @profile.address2 %></p>
+<p>City: <%= @profile.city %></p>
+<p>State: <%= @profile.state %></p>
+<p>Phone: <%= @profile.phone %></p>
+<p>Email: <%= @profile.email %></p>
+<p>Url: <%= @profile.url %></p>
+<p>Zip: <%= @profile.zip %></p><br />
+
+<p><%= link_to 'Edit Profile', edit_profile_path(@profile), :class => 'blue_button' %></p>

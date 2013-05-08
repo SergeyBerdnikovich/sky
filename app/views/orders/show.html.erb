@@ -1,0 +1,7 @@
+<h1>Order Show</h1>
+<p>Property Name: <%= @order.property.profile.name %></p>
+<p>Vendor Name: <%= @order.vendor.user.profile.name if @order.vendor %></p>
+<p>Size: <%= @order.size %></p>
+<p>Comment: <%= @order.comment %></p>
+
+<p><%= link_to 'Edit Order', edit_order_path(@order) %></p>

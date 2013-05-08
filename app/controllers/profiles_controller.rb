@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def wizard1
-    @profile = Profile.find(params[:id])
+    current_user.properties << Property.create!
+    @profile = current_user.properties.first.profile
   end
 
   def update
@@ -8,14 +9,24 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to orders_wizard2_path(:id => @profile.id), notice: 'Profile was successfully updated.' }
-        # format.html { redirect_to orders_wizard3_path(:id => @profile.profilable.order.id), notice: 'Profile was successfully updated.' }
-
+        if @profile.profilable_type == 'Property' && @profile.profilable.user.properties.size < 2
+          format.html { redirect_to orders_wizard2_path(:id => @profile.id), notice: 'Profile was successfully updated.' }
+        else
+          format.html { redirect_to profile_path(@profile), notice: 'Profile was successfully updated.' }
+        end
         format.json { render action: 'edit', status: :created, location: @profile }
       else
         format.html { render action: 'edit' }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+    @profile = Profile.find(params[:id])
+  end
+
+  def edit
+    @profile = Profile.find(params[:id])
   end
 end
