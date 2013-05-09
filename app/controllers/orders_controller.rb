@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def wizard4
-
+    @order = Order.find(params[:id])
   end
 
   def wizard3
@@ -43,6 +43,27 @@ class OrdersController < ApplicationController
     @profile = Profile.find(params[:id])
     @vendors_zips = VendorsZip.where(:zip => @profile.zip)
     @order = Order.create!(:property_id => @profile.profilable.id)
+  end
+
+  def wizard5
+    card_type = params[:card_type]
+    card_number = params[:card_number]
+    card_date1 = params[:card_date1]
+    card_date2 = params[:card_date2]
+    veryfication_number = params[:veryfication_number]
+    card_first_name = params[:card_first_name]
+    card_last_name = params[:card_last_name]
+    contact_number = params[:contact_number]
+    address = params[:address]
+    country = params[:country]
+    city = params[:city]
+    state = params[:state]
+    zip = params[:zip]
+
+    @order = Order.find(params[:id])
+    # save data
+
+    # send confirmation email
   end
 
   def update

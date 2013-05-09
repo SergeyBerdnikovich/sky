@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_self
 //= require_tree .
+
+jQuery(document).ready(function(){
+  jQuery(function() {
+    jQuery( ".wizard3#datepicker" ).datepicker('show');
+  });
+});

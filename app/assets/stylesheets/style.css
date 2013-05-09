@@ -242,3 +242,44 @@ hr#signin {
 hr#forgot_pas {
   margin-left: 60px;
 }
+
+/*Payment*/
+#payment1 p, #payment2 p, #payment4 p {
+  float: left;
+}
+#clear {
+  clear: both;
+}
+#payment {
+  width: 60%;
+  margin: 0 auto 30px auto;
+  padding-left: 60px;
+  padding-bottom: 50px;
+  text-align: left;
+  background-color: #E2E2E1;
+}
+#payment input {
+  margin: 0 7px;
+}
+#payment span {
+  margin: 0 10px;
+}
+#payment .blue_button {
+  margin-left: -70px;
+}
+#confirmation {
+  border: 1px solid #C3C3C3;
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+  color: black;
+  font: bold 180% 'PT Sans', serif;
+}
+#confirmation a {
+  color: #0CA9CB;
+  text-decoration: none;
+}
+#confirmation a:hover {
+  color: #9F1F63;
+  background: none;
+}

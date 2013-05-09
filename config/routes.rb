@@ -12,6 +12,7 @@ Sky::Application.routes.draw do
   match '/orders/wizard2' => "orders#wizard2"
   match '/orders/wizard3' => "orders#wizard3"
   match '/orders/wizard4' => "orders#wizard4"
+  match '/orders/wizard5' => "orders#wizard5"
 
   resources :static_pages
 
