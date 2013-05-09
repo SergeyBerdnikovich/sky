@@ -1,5 +1,5 @@
 class Schedule < ActiveRecord::Base
-  attr_accessible :name, :period, :order_id
+  attr_accessible :name, :period
 
-  belongs_to :order
+  has_many :order
 end

@@ -6,6 +6,12 @@
   <%= hidden_field_tag :redirect_to, 'order' %>
     <table>
       <tr>
+        <td class='order_title'><%= f.label :schedule_id %>:</td>
+        <td>
+          <%= f.select :schedule_id, options_from_collection_for_select(Schedule.all, "id", "name", @order.schedule.try(:id)), :class => 'text' %>
+        </td>
+      </tr>
+      <tr>
         <td class='order_title'><%= f.label :size %>:</td>
         <td><%= f.text_field :size, :class => 'text' %></td>
       </tr>
@@ -15,11 +21,15 @@
       </tr>
       <tr>
         <td class='order_title'><%= f.label :vendor_id %>:</td>
-        <% @vendors_zips.each_with_index do |vendor_zip, i| %>
-          <td>
-            <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %> <%= vendor_zip.vendor.user.profile.name %>
-          </td>
-        <% end %>
+        <td>
+          <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+            <p>
+              <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
+              Name: <%= vendor_zip.vendor.user.profile.name %>
+              Price: <%= vendor_zip.vendor.tarif.price %>$
+            </p>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <td class='order_title'><%= f.label :comment %>:</td>

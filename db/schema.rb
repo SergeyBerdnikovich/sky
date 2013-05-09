@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508122919) do
+ActiveRecord::Schema.define(:version => 20130509091553) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130508122919) do
     t.text     "comment"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "schedule_id"
   end
 
   create_table "profiles", :force => true do |t|
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130508122919) do
   create_table "schedules", :force => true do |t|
     t.string   "name"
     t.integer  "period"
-    t.integer  "order_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -3,5 +3,8 @@
 <p>Vendor Name: <%= @order.vendor.user.profile.name if @order.vendor %></p>
 <p>Size: <%= @order.size %></p>
 <p>Comment: <%= @order.comment %></p>
+<p>Schedule:</p>
+<p>Name: <%= @order.schedule.try(:name) %></p>
+<p>Period: <%= @order.schedule.try(:period) %></p>
 
 <p><%= link_to 'Edit Order', edit_order_path(@order) %></p>

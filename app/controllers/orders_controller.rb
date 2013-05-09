@@ -2,11 +2,13 @@ class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
     @vendors_zips = VendorsZip.where(:zip => @order.property.profile.zip)
+    @schedule = @order.schedule || @order.build_schedule
   end
 
   def new
     @order = Order.new(:property_id => params[:id])
     @vendors_zips = VendorsZip.where(:zip => @order.property.profile.zip)
+    @schedule = @order.build_schedule
   end
 
   def create
@@ -33,6 +35,9 @@ class OrdersController < ApplicationController
 
   end
 
+  def wizard3
+    @order = Order.find(params[:id])
+  end
 
   def wizard2
     @profile = Profile.find(params[:id])
@@ -47,8 +52,10 @@ class OrdersController < ApplicationController
       if @order.update_attributes(params[:order])
         if params[:redirect_to] == 'order'
           format.html { redirect_to order_path(@order), notice: 'Order was successfully updated.'}
+        elsif params[:redirect_to] == 'wizard4'
+          format.html { redirect_to orders_wizard4_path(:id => @order.id), notice: 'Order was successfully updated.'}
         else
-          format.html { redirect_to schedules_wizard3_path(:id => @order.id), notice: 'Order was successfully updated.' }
+          format.html { redirect_to orders_wizard3_path(:id => @order.id), notice: 'Order was successfully updated.' }
         end
         format.json { render action: 'show', status: :created, location: @order }
       else

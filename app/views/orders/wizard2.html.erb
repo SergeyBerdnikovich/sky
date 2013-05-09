@@ -1,25 +1,16 @@
 <h3>Please select size of property:</h3>
 
-<input id="slider1"  type="range" min="100" value=100 max="5000" step="10" onchange="$('#size').val($('#slider1').val())"/>
-<input id="size" type="text" value=100 size="5" onchange="$('#slider1').val($('#size').val())"/>
-
-<h3>Please choose vendor:</h3>
-<table>
-  <tr>
-    <td>Name</td>
-    <td>Rating</td>
-    <td>Price</td>
-    <td></td>
-  </tr>
-<% @vendors_zips.each do |vendor_zip| %>
-<tr>
-  <td><%= vendor_zip.vendor.user.profile.name %></td>
-  <td>rating???</td>
-  <td><%= vendor_zip.vendor.tarif.price %></td>
-  <%= form_for @order do |f| %>
-    <%= f.hidden_field :vendor_id, :value => vendor_zip.vendor.id %>
-    <td><%= f.submit 'Add Vendor' %></td>
+<%= form_for @order do |f| %>
+  <p>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </p>
+  <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+    <p>
+      <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
+      Name: <%= vendor_zip.vendor.user.profile.name %>
+      Price: <%= vendor_zip.vendor.tarif.price %>$
+    </p>
   <% end %>
-</tr>
+  <%= f.submit 'Next', :class => 'blue_button' %>
 <% end %>
-</table>

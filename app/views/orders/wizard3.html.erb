@@ -1,0 +1,19 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+  });
+</script>
+step 3 schedule
+
+<%= form_for @order do |f| %>
+  <%= hidden_field_tag :redirect_to, 'wizard4' %>
+  <p>Start Date: <%= f.text_field :start_date, :id => "datepicker" %></p>
+  <p>
+    <%= f.label :schedule_id %>
+    <%= f.select :schedule_id, options_from_collection_for_select(Schedule.all, "id", "name", @order.schedule.try(:id)), :class => 'text' %>
+  </p>
+
+  <%= f.submit 'Next', :class => 'blue_button' %>
+<% end %>
