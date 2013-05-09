@@ -5,15 +5,21 @@
     });
   });
 </script>
-step 3 schedule
+<h2 id='step'>Step 3: Select Schedule</h2>
 
+<div class='wizard3'>
 <%= form_for @order do |f| %>
   <%= hidden_field_tag :redirect_to, 'wizard4' %>
-  <p>Start Date: <%= f.text_field :start_date, :id => "datepicker", :class => 'wizard3' %></p>
-  <p>
-    <%= f.label :schedule_id %>
-    <%= f.select :schedule_id, options_from_collection_for_select(Schedule.all, "id", "name", @order.schedule.try(:id)), :class => 'text' %>
-  </p>
-
+  <table>
+    <tr>
+      <td class='title'><%= f.label :start_date %></td>
+      <td><%= f.text_field :start_date, :id => "datepicker", :class => 'wizard3 text' %></td>
+    </td>
+    <tr>
+      <td class='title'><%= f.label :schedule_id %></td>
+      <td><%= f.select :schedule_id, options_from_collection_for_select(Schedule.all, "id", "name", @order.schedule.try(:id)) %></td>
+    </td>
+  </table>
+</div>
   <%= f.submit 'Next', :class => 'blue_button' %>
 <% end %>

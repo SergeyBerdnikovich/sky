@@ -19,4 +19,15 @@ jQuery(document).ready(function(){
   jQuery(function() {
     jQuery( ".wizard3#datepicker" ).datepicker('show');
   });
+  $("#slider-range").slider({
+    range: "min",
+    min: 1,
+    max: 500,
+    value: 37,
+    slide: function( event, ui ) {
+      $( "#amount" ).val( ui.value );
+    }
+  });
+  $( "#amount" ).val( $( "#slider-range" ).slider( "value" ));
+  $("#slider-range").slider({ animate: true });
 });

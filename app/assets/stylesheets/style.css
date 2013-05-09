@@ -233,8 +233,8 @@ select.text {
 #footer_bird img {
   position: relative;
   z-index: 100;
-  left: 380px;
-  top: 45px;
+  left: 780px;
+  bottom: 355px;
 }
 hr#signin {
   margin-left: 100px;
@@ -282,4 +282,41 @@ hr#forgot_pas {
 #confirmation a:hover {
   color: #9F1F63;
   background: none;
+}
+#border_content.wizard1 {
+  padding-left: 90px;
+}
+.wizard2 {
+  width: 600px;
+  margin: 10px auto;
+  border: 1px solid #ECECEC;
+  text-align: left;
+  padding: 25px 25px 25px 120px;
+  color: #B5B5B5;
+  font: bold 180% 'PT Sans', serif;
+}
+.wizard3 {
+  width: 600px;
+  margin: 10px auto;
+  border: 1px solid #ECECEC;
+  text-align: left;
+  padding: 25px 25px 25px 120px;
+  color: #B5B5B5;
+  font: bold 180% 'PT Sans', serif;
+}
+.wizard3 select {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+  color: #424242 !important;
+  font-size: 0.9em;
+  padding: 6px 11px;
+  transition: all 400ms ease-out 0s;
+  width: 324px;
+}
+#vendors {
+  overflow: auto;
+  height: 200px;
+  width: 420px;
+  font: bold 180% 'PT Sans', serif;
 }

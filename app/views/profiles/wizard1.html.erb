@@ -1,6 +1,6 @@
 <h2 id='step'>Step 1: Enter the property address</h2>
 
-<div id='border_content' class='edit_order'>
+<div id='border_content' class='wizard1'>
   <%= form_for @profile do |f| %>
     <%= hidden_field_tag :redirect_to, 'wizard2' %>
     <table>
@@ -34,6 +34,3 @@
 </div>
     <div><%= f.submit "Next", :class => 'blue_button' %></div>
   <% end %>
-<div id='footer_bird'>
-  <%= image_tag '/assets/bird.png' %>
-</div>

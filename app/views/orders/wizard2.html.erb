@@ -1,16 +1,21 @@
-<h3>Please select size of property:</h3>
-
+<h2 id='step'>Step 2: Please select vendor</h2>
+<div class='wizard2'>
 <%= form_for @order do |f| %>
   <p>
     <%= f.label :size %>
-    <%= f.text_field :size %>
+    <%= f.text_field :size, :id => 'amount', :class => 'text' %>
+    <div id="slider-range" style='width:350px'></div>
   </p>
-  <% @vendors_zips.each_with_index do |vendor_zip, i| %>
-    <p>
-      <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
-      Name: <%= vendor_zip.vendor.user.profile.name %>
-      Price: <%= vendor_zip.vendor.tarif.price %>$
-    </p>
-  <% end %>
+  <div id='vendors'>
+    <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+      <p>
+        <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
+        Name: <%= vendor_zip.vendor.user.profile.name %>
+        Price: <%= vendor_zip.vendor.tarif.price %>$
+      </p>
+    <% end %>
+  </div>
+  <!-- <input type="text" style="border: 0pt none; color: rgb(246, 147, 31); font-weight: bold;" id="amount"> -->
+</div>
   <%= f.submit 'Next', :class => 'blue_button' %>
 <% end %>
