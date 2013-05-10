@@ -320,3 +320,6 @@ hr#forgot_pas {
   width: 420px;
   font: bold 180% 'PT Sans', serif;
 }
+#social_icons a:hover {
+  background: none;
+}

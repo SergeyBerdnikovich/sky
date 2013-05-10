@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509091553) do
+ActiveRecord::Schema.define(:version => 20130510095948) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name"
@@ -109,6 +109,17 @@ ActiveRecord::Schema.define(:version => 20130509091553) do
     t.integer  "period"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "social_networks", :force => true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
   create_table "static_pages", :force => true do |t|

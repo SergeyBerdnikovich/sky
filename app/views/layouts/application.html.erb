@@ -50,7 +50,7 @@
           </ul>
         </div>
         <div id='social'>
-          <%= image_tag '/assets/soc.gif' %>
+          <%#= image_tag '/assets/soc.gif' %>
         </div>
         <div id='footer_bird'>
           <%= image_tag '/assets/bird.png' %>
@@ -60,6 +60,9 @@
   </div>
   <div id='copyright'>
     Copyright &copy 2013 ZipMow, LLC. All rights reserved.
+    <div id='social_icons'>
+      <%= render 'layouts/social_networks' %>
+    </div>
   </div>
 </body>
 </html>
