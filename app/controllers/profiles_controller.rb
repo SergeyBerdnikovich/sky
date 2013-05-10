@@ -1,7 +1,10 @@
 class ProfilesController < ApplicationController
   def wizard1
-    # current_user.properties << Property.create!
     @profile = current_user.properties.first.profile
+  end
+
+  def wizard3
+
   end
 
   def update

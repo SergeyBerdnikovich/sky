@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   after_create :create_profile
   after_create :create_property
+  after_create :create_vendor
 
   private
 
@@ -26,5 +27,9 @@ class User < ActiveRecord::Base
 
   def create_property
     self.properties << Property.create! if self.redirect == 'residential'
+  end
+
+  def create_vendor
+    self.vendor = Vendor.create! if self.redirect == 'vendor'
   end
 end

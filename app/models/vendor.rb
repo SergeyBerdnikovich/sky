@@ -4,4 +4,5 @@ class Vendor < ActiveRecord::Base
   belongs_to :tarif
   belongs_to :user
   has_many :vendors_zips
+  has_one :bank_account
 end

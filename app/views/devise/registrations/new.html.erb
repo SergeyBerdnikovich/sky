@@ -9,10 +9,13 @@
     <%= devise_error_messages! %>
     <% if params[:type] && params[:type] == 'residential' %>
       <%= f.hidden_field :redirect, :value => 'residential' %>
+    <% elsif params[:type] && params[:type] == 'vendor' %>
+      <%= f.hidden_field :redirect, :value => 'vendor' %>
     <% else %>
       <%= f.hidden_field :redirect, :value => 'myaccount' %>
     <% end %>
     <table>
+      <% unless params[:type] == 'vendor' %>
       <tr>
         <td rowspan="2" class='title'>Account Type:</td>
         <td><%= f.select :account_type_id, options_from_collection_for_select(AccountType.all, "id", "name"), :class => 'text' %></td>
@@ -20,6 +23,7 @@
       <tr>
         <td class='small'>Relationship to property (i.e. Homeowner, Property Manager, etc.)</td>
       </tr>
+      <% end %>
       <tr>
         <td rowspan="2" class='title'><%= f.label :email %>*</td>
         <td><%= f.email_field :email, :autofocus => true, :class => 'text' %></td>

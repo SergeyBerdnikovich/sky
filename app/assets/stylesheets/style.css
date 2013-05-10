@@ -216,6 +216,7 @@ select.text {
   width: 360px;
   height: 1px;
   border: 1px solid #F0F0F0;
+  font: bold 12px 'PT Sans', serif;
 }
 #signup_login {
   width: 300px;
@@ -322,4 +323,26 @@ hr#forgot_pas {
 }
 #social_icons a:hover {
   background: none;
+}
+#account_type select {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+  color: #424242 !important;
+  font-size: 0.9em;
+  padding: 6px 11px;
+  transition: all 400ms ease-out 0s;
+  width: 200px;
+}
+#routing_number input {
+  width: 177px;
+}
+div#left {
+  float: left;
+  height: 120px;
+  margin-right: 10px;
+  margin-left: 90px;
+}
+div#right input {
+  width: 177px;
 }
