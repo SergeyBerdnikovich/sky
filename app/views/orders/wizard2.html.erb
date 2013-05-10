@@ -4,6 +4,7 @@
   <center><p>
     <%= f.label :size %>
     <%= f.text_field :size, :id => 'amount', :class => 'text' %>
+    <%= hidden_field_tag :redirect_to, 'wizard3' %>
     <div id="slider-range" style='width:350px'></div>
   </center></p><br>
 

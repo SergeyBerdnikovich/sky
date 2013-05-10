@@ -16,8 +16,15 @@ class User < ActiveRecord::Base
   has_one :vendor
 
   after_create :create_profile
+  after_create :create_property
+
+  private
 
   def create_profile
     self.profile = Profile.create!
+  end
+
+  def create_property
+    self.properties << Property.create! if self.redirect == 'residential'
   end
 end
