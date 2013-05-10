@@ -1,20 +1,40 @@
 <h2 id='step'>Step 2: Please select vendor</h2>
 <div class='wizard2'>
 <%= form_for @order do |f| %>
-  <p>
+  <center><p>
     <%= f.label :size %>
     <%= f.text_field :size, :id => 'amount', :class => 'text' %>
     <div id="slider-range" style='width:350px'></div>
-  </p>
-  <div id='vendors'>
+  </center></p><br>
+  
+    <table>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Rating</th>
+        <th>Reviews</th>
+        <th>Price</th>
+        <th>Jobs done</th>
+        <th>Profile</th>
+      </tr>
     <% @vendors_zips.each_with_index do |vendor_zip, i| %>
-      <p>
+        <tr>
+         <td>
         <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
-        Name: <%= vendor_zip.vendor.user.profile.name %>
-        Price: <%= vendor_zip.vendor.tarif.price %>$
-      </p>
+          </td>
+        <td><%= vendor_zip.vendor.user.profile.name %></td>
+        <td><%= vendor_zip.vendor.user.profile.address1 %></td>
+        <td>1</td>
+        <td>1</td>
+        <td>10</td>
+        <td>Price: <%= vendor_zip.vendor.tarif.price %>$</td>
+        <td><a href='#'>Show profile</a></td>
+        </tr>
+      
     <% end %>
-  </div>
+  </table>
+  
   <!-- <input type="text" style="border: 0pt none; color: rgb(246, 147, 31); font-weight: bold;" id="amount"> -->
 </div>
   <%= f.submit 'Next', :class => 'blue_button' %>

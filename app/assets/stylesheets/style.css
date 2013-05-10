@@ -287,11 +287,11 @@ hr#forgot_pas {
   padding-left: 90px;
 }
 .wizard2 {
-  width: 600px;
+  width: 800px;
   margin: 10px auto;
   border: 1px solid #ECECEC;
   text-align: left;
-  padding: 25px 25px 25px 120px;
+  padding: 25px 25px 25px 25px;
   color: #B5B5B5;
   font: bold 180% 'PT Sans', serif;
 }
