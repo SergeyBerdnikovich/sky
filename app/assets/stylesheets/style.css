@@ -346,3 +346,77 @@ div#left {
 div#right input {
   width: 177px;
 }
+#company_address {
+  width: 250px;
+  float: left;
+  border: 1px solid #DFDFDF;
+}
+#vendor_step3 hr {
+  height: 1px;
+  border: none;
+  background-color: #DFDFDF;
+  clear: both;
+}
+p#city input {
+  width: 75px;
+}
+p#city {
+  margin: 13px 10px 13px 25px;
+  float: left;
+}
+p#state {
+  float: left;
+}
+p#state input {
+  width: 55px;
+}
+p#zip {
+  clear: both;
+  margin-left: 108px;
+}
+p#zip input {
+  width: 55px;
+}
+#vendor_step3 {
+  font: bold 180% 'PT Sans', serif;
+  color: #7A7A7A;
+  text-align: center;
+}
+#vendor_step3 input {
+  width: 165px;
+}
+#vendor_step3 #title {
+  font: 80% 'PT Sans', serif;
+  text-transform: uppercase;
+  line-height: 10%;
+}
+#company_ownership {
+  width: 250px;
+  float: left;
+  border: 1px solid #DFDFDF;
+  margin-left: 125px;
+}
+#fname {
+  float: left;
+  margin: 0 10px 13px 25px;
+}
+#fname input {
+  width: 65px;
+}
+#lname {
+  margin: 0 0 5px 0;
+  float: left;
+}
+#lname input {
+  width: 65px;
+}
+#company_name {
+  margin-bottom: 0px;
+}
+#address {
+  margin-bottom: 0px;
+}
+#top_tables {
+  margin: 0 auto;
+  width: 630px;
+}

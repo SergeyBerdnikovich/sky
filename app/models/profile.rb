@@ -12,7 +12,13 @@ class Profile < ActiveRecord::Base
                   :url,
                   :description,
                   :profilable_id,
-                  :profilable_type
+                  :profilable_type,
+                  :company_attributes
 
   belongs_to :profilable, polymorphic: true
+  has_one :company
+
+  accepts_nested_attributes_for :company,
+                                :allow_destroy => :true,
+                                :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 end
