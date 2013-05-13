@@ -420,3 +420,54 @@ p#zip input {
   margin: 0 auto;
   width: 630px;
 }
+#vendor_wizard5_content {
+  width: 900px;
+  min-height: 600px;
+
+  margin: 0 auto;
+}
+#tarifs {
+  height: 320px;
+}
+.tarif {
+  width: 150px;
+  height: 280px;
+  border: 1px solid #DFDFDF;
+  float: left;
+  position: relative;
+  margin: 13px;
+  font: bold 180% 'PT Sans', serif;
+  color: #7A7A7A;
+}
+.tarif hr {
+  height: 1px;
+  border: none;
+  background-color: #DFDFDF;
+}
+.tarif p#price {
+  position: absolute;
+  float: right;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+}
+#zips .zip {
+  float: left;
+  margin: 10px;
+  font: 200% 'PT Sans', serif;
+}
+.tarif #title {
+  text-transform: uppercase;
+  line-height: 10%;
+  font: 80% 'PT Sans', serif;
+  margin: 5px auto 0 auto;
+}
+#zips {
+  width: 80%;
+  margin: 0 auto;
+  color: #7A7A7A;
+}
+#zips_slogan {
+  font: 220% 'PT Sans', serif;
+  text-transform: uppercase;
+}

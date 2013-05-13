@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510184928) do
+ActiveRecord::Schema.define(:version => 20130513133527) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name"
@@ -151,8 +151,9 @@ ActiveRecord::Schema.define(:version => 20130510184928) do
 
   create_table "tarifs", :force => true do |t|
     t.float    "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "number_of_zips"
   end
 
   create_table "users", :force => true do |t|
@@ -191,8 +192,14 @@ ActiveRecord::Schema.define(:version => 20130510184928) do
   end
 
   create_table "vendors_zips", :force => true do |t|
-    t.integer  "vendor_id"
-    t.integer  "zip"
+    t.integer "vendor_id"
+    t.integer "zip_id"
+  end
+
+  create_table "zips", :force => true do |t|
+    t.string   "state"
+    t.string   "city"
+    t.integer  "number"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

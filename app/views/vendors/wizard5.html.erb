@@ -1,0 +1,29 @@
+<h2 id='step'>Step 5: Select Plan</h2>
+<div id='vendor_wizard5_content'>
+  <div id='tarifs'>
+    <% @tarifs.each_with_index do |tarif, i| %>
+    <%= hidden_field_tag :redirect_to, 'wizard6' %>
+      <div class='tarif'>
+        <p id='title'>Plan #<%= i+1 %></p>
+        <hr />
+        <p><%= tarif.number_of_zips %> Zip Codes</p>
+        <p>description</p>
+        <p id='price'>$<%= tarif.price %></p>
+      </div>
+    <% end %>
+  </div>
+  <div id='clear'></div>
+  <div id='zips'>
+    <p id='zips_slogan'>Select zip codes (City, State)</p>
+    <%= form_for @vendor do |f| %>
+      <% @zips.each do |zip| %>
+        <p class='zip'>
+          <%= check_box_tag "zip_ids[]", zip.id, false, :id => "zip_ids_#{zip.id}" %>
+          <%= zip.number %>
+        </p>
+      <% end %>
+  </div>
+</div>
+<div id='clear'></div>
+      <%= f.submit 'Next', :class => 'blue_button' %>
+    <% end %>

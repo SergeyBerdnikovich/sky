@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
           format.html { redirect_to orders_wizard2_path(:id => @profile.id), notice: 'Profile was successfully updated.' }
         elsif params[:redirect_to] == 'wizard4'
           @profile.company ||= Company.create!(params[:company])
-          format.html { redirect_to root_path }
+          format.html { redirect_to vendors_wizard5_path, notice: 'Profile was successfully updated.' }
         else
           format.html { redirect_to profile_path(@profile), notice: 'Profile was successfully updated.' }
         end

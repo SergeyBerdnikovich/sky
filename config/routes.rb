@@ -14,8 +14,11 @@ Sky::Application.routes.draw do
   match '/orders/wizard4' => "orders#wizard4"
   match '/orders/wizard5' => "orders#wizard5"
 
+  match '/vendors/preview' => "vendors#preview"
   match '/bank_accounts/wizard2' => "bank_accounts#wizard2"
   match '/profiles/wizard3' => "profiles#wizard3"
+  match '/vendors/wizard5' => "vendors#wizard5"
+  match '/vendors/wizard6' => "vendors#wizard6"
 
   match '/orders/my_orders' => "orders#my_orders"
 
@@ -24,6 +27,8 @@ Sky::Application.routes.draw do
   resources :static_pages
 
   resources :profiles
+
+  resources :vendors
 
   resources :properties
 
