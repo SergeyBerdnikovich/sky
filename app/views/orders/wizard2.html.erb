@@ -4,6 +4,7 @@
   <center><p>
     <%= f.label :size %>
     <%= f.text_field :size, :id => 'amount', :class => 'text' %>
+    <%= f.hidden_field :property_id %>
     <%= hidden_field_tag :redirect_to, 'wizard3' %>
     <div id="slider-range" style='width:350px'></div>
   </center></p><br>
@@ -19,18 +20,18 @@
         <th>Jobs done</th>
         <th>Profile</th>
       </tr>
-    <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+    <% @vendors.each_with_index do |vendor, i| %>
         <tr>
           <td>
-            <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
+            <%= f.radio_button :vendor_id, vendor.id, :checked => (i == 0 ? true : false) %>
           </td>
-          <td><%= vendor_zip.vendor.user.profile.name %></td>
-          <td><%= vendor_zip.vendor.user.profile.address1 %></td>
+          <td><%= vendor.user.profile.name %></td>
+          <td><%= vendor.user.profile.address1 %></td>
           <td>1</td>
           <td>1</td>
           <td>10</td>
-          <td>Price: <%= vendor_zip.vendor.tarif.price %>$</td>
-          <td><%= link_to 'Show profile', profile_path(vendor_zip.vendor.user.profile) %></td>
+          <td>Price: <%= vendor.tarif.price %>$</td>
+          <td><%= link_to 'Show profile', profile_path(vendor.user.profile) %></td>
         </tr>
 
     <% end %>

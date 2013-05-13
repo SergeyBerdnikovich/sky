@@ -1,13 +1,15 @@
 class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
-    @vendors_zips = VendorsZip.where(:zip => @order.property.profile.zip)
+    @vendors_zip = Zip.where(:number => @order.property.profile.zip).first
+    @vendors = @vendors_zip.try(:vendors) || []
     @schedule = @order.schedule || @order.build_schedule
   end
 
   def new
     @order = Order.new(:property_id => params[:id])
-    @vendors_zips = VendorsZip.where(:zip => @order.property.profile.zip)
+    @vendors_zip = Zip.where(:number => @order.property.profile.zip).first
+    @vendors = @vendors_zip.try(:vendors) || []
     @schedule = @order.build_schedule
   end
 
@@ -56,9 +58,9 @@ class OrdersController < ApplicationController
 
   def wizard2
     @profile = Profile.find(params[:id])
-    @vendors_zips = VendorsZip.where(:zip => @profile.zip)
-    # @order = Order.create!(:property_id => @profile.profilable.id)
-    @order = Order.new(:property_id => @profile.profilable.id)
+    @vendors_zip = Zip.where(:number => @profile.zip).first
+    @vendors = @vendors_zip.try(:vendors) || []
+    @order = @profile.profilable.orders.build
   end
 
   def wizard3

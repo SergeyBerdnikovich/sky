@@ -22,11 +22,11 @@
       <tr>
         <td class='order_title'><%= f.label :vendor_id %>:</td>
         <td>
-          <% @vendors_zips.each_with_index do |vendor_zip, i| %>
+          <% @vendors.each_with_index do |vendor, i| %>
             <p>
-              <%= f.radio_button :vendor_id, vendor_zip.vendor.id, :checked => (i == 0 ? true : false) %>
-              Name: <%= vendor_zip.vendor.user.profile.name %>
-              Price: <%= vendor_zip.vendor.tarif.price %>$
+              <%= f.radio_button :vendor_id, vendor.id, :checked => (i == 0 ? true : false) %>
+              Name: <%= vendor.user.profile.name %>
+              Price: <%= vendor.tarif.price %>$
             </p>
           <% end %>
         </td>
