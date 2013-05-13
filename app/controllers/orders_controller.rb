@@ -97,4 +97,14 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.where(:property_id => params[:id])
   end
+
+  def my_orders
+    @orders = []
+    current_user.properties.each do |property|
+      property.orders.each do |order|
+        @orders << order
+      end
+    end
+    @orders
+  end
 end

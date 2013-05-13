@@ -17,6 +17,8 @@ Sky::Application.routes.draw do
   match '/bank_accounts/wizard2' => "bank_accounts#wizard2"
   match '/profiles/wizard3' => "profiles#wizard3"
 
+  match '/orders/my_orders' => "orders#my_orders"
+
   resources :bank_accounts
 
   resources :static_pages

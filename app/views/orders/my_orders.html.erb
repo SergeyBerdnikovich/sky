@@ -1,0 +1,10 @@
+<h1>All Orders</h1>
+<% @orders.each do |order| %>
+<div>
+  <p>property name: <%= order.property.profile.name %></p>
+  <p>vendor name: <%= order.vendor.user.profile.name if order.vendor %></p>
+  <p>start date: <%= order.start_date %></p>
+  <p>comment: <%= order.comment %></p>
+  <%= link_to 'Show', order_path(order) %>
+</div>
+<% end %>
