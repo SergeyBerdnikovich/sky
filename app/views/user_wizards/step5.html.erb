@@ -1,0 +1,65 @@
+<h2 id='step'>Step 5: Enter Payment</h2>
+<div id='payment'>
+<%= form_tag(user_wizards_handler_path(:step => 5)) do |f| %>
+  <div id='payment1'>
+    <p>
+      <span>Card</span><br /><span>Type:</span><br />
+      <%= select_tag :card_type, "<option>Type1</option>".html_safe, :class => 'text', :style => 'width:80px;margin-left:7px;' %>
+    </p>
+    <p>
+      <span>Card</span><br /><span>Number:</span><br />
+      <%= text_field_tag :card_number, '', :class => 'text', :style => 'width:80px' %>
+    </p>
+    <p>
+      <span>Card</span><br /><span>date:</span><br />
+      <%= select_tag :card_date1, "<option>1</option>".html_safe, :class => 'text', :style => 'width:80px;margin-right:3px;' %>
+      <%= select_tag :card_date2, "<option>1</option>".html_safe, :class => 'text', :style => 'width:80px' %>
+    </p>
+    <p>
+      <span>Veryfication:</span><br /><span>number:</span><br />
+      <%= text_field_tag :veryfication_number, '', :class => 'text', :style => 'width:80px' %>
+    </p>
+  </div>
+  <div id='clear'></div>
+  <div id='payment2'>
+    <p>
+      <span>Card first name:</span><br />
+      <%= text_field_tag :card_first_name, '', :class => 'text', :style => 'width:125px' %>
+    </p>
+    <p>
+      <span>Card last name:</span><br />
+      <%= text_field_tag :card_last_name, '', :class => 'text', :style => 'width:125px' %>
+    </p>
+    <p>
+      <span>Contact number:</span><br />
+      <%= text_field_tag :contact_number, '', :class => 'text', :style => 'width:125px' %>
+    </p>
+  </div>
+  <div id='clear'></div>
+  <div id='payment3'>
+    <span>Address:</span><br />
+    <%= text_field_tag :address, '', :class => 'text', :style => 'width:450px;float:left;' %>
+  </div>
+  <div id='clear'></div>
+  <div id='payment4'>
+    <p>
+      <span>Country:</span><br />
+      <%= text_field_tag :country, '', :class => 'text', :style => 'width:84px' %>
+    </p>
+    <p>
+      <span>City:</span><br />
+      <%= text_field_tag :city, '', :class => 'text', :style => 'width:84px' %>
+    </p>
+    <p>
+      <span>State:</span><br />
+      <%= text_field_tag :state, '', :class => 'text', :style => 'width:84px' %>
+    </p>
+    <p>
+      <span>Zip:</span><br />
+      <%= text_field_tag :zip, '', :class => 'text', :style => 'width:84px' %>
+    </p>
+  </div>
+  <div id='clear'></div>
+</div>
+  <%= submit_tag 'Next', :class => 'blue_button' %>
+<% end %>

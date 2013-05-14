@@ -8,6 +8,14 @@ Sky::Application.routes.draw do
   match '/static_pages/welcome' => "static_pages#welcome"
   match '/static_pages/myaccount' => "static_pages#myaccount"
 
+  match '/user_wizards/step0' => "user_wizards#step0"
+  match '/user_wizards/step2' => "user_wizards#step2"
+  match '/user_wizards/step3' => "user_wizards#step3"
+  match '/user_wizards/step4' => "user_wizards#step4"
+  match '/user_wizards/step5' => "user_wizards#step5"
+  match '/user_wizards/step6' => "user_wizards#step6"
+  match '/user_wizards/handler' => "user_wizards#handler"
+
   match '/profiles/wizard1' => "profiles#wizard1"
   match '/orders/wizard2' => "orders#wizard2"
   match '/orders/wizard3' => "orders#wizard3"
