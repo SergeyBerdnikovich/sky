@@ -56,42 +56,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def wizard2
-    @profile = Profile.find(params[:id])
-    @vendors_zip = Zip.where(:number => @profile.zip).first
-    @vendors = @vendors_zip.try(:vendors) || []
-    @order = @profile.profilable.orders.build
-  end
-
-  def wizard3
-    @order = Order.find(params[:id])
-  end
-
-  def wizard4
-    @order = Order.find(params[:id])
-  end
-
-  def wizard5
-    card_type = params[:card_type]
-    card_number = params[:card_number]
-    card_date1 = params[:card_date1]
-    card_date2 = params[:card_date2]
-    veryfication_number = params[:veryfication_number]
-    card_first_name = params[:card_first_name]
-    card_last_name = params[:card_last_name]
-    contact_number = params[:contact_number]
-    address = params[:address]
-    country = params[:country]
-    city = params[:city]
-    state = params[:state]
-    zip = params[:zip]
-
-    @order = Order.find(params[:id])
-    # save data
-
-    # send confirmation email
-  end
-
   def show
     @order = Order.find(params[:id])
   end

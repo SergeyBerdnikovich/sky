@@ -1,4 +1,6 @@
 class VendorWizardsController < ApplicationController
+  before_filter :check_user, :except => [:step0]
+
   def step0
     sign_out
   end
@@ -76,5 +78,11 @@ class VendorWizardsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Error' }
       end
     end
+  end
+
+  private
+
+  def check_user
+    redirect_to root_path unless current_user
   end
 end

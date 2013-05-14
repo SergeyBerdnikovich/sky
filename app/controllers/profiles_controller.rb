@@ -1,13 +1,4 @@
 class ProfilesController < ApplicationController
-  def wizard1
-    @profile = current_user.properties.first.profile
-  end
-
-  def wizard3
-    @profile = current_user.profile
-    @profile.build_company unless @profile.company
-  end
-
   def update
     @profile = Profile.find(params[:id])
 
