@@ -18,6 +18,12 @@ body {
   width: 220px;
   margin: 20px 0 0 30px;
   float: left;
+  border: none;
+}
+#logo a {
+  text-decoration: none;
+  background: none;
+  border: none;
 }
 #phone_number {
   float: right;
