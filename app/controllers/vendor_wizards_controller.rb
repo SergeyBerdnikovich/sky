@@ -64,15 +64,15 @@ class VendorWizardsController < ApplicationController
         format.html { redirect_to vendor_wizards_step6_path }
       elsif params[:step] == '6'
         @vendor = current_user.vendor
-        @tarif = Tarif.where("number_of_zips >= ?", params[:zip_ids].size).first
+        @tarif = Tarif.where("number_of_zips >= ?", params[:zip_ids].try(:size)).first
         @vendor.zips = []
-        params[:zip_ids].each do |zip_id|
-          @vendor.zips << Zip.find(zip_id)
-        end
         if @tarif && @vendor.update_attribute(:tarif_id, @tarif.id)
+          params[:zip_ids].each do |zip_id|
+            @vendor.zips << Zip.find(zip_id)
+          end
           format.html { redirect_to vendor_wizards_step7_path }
         else
-          format.html { render :action => "step6" }
+          format.html { redirect_to vendor_wizards_step6_path }
         end
       else
         format.html { redirect_to root_path, notice: 'Error' }
