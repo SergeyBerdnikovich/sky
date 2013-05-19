@@ -1,6 +1,11 @@
 <% if user_signed_in? %>
+  <% if current_user.vendor %>
+  <%= link_to 'My Account', vendors_path %>
+  <% else %>
   <%= link_to 'My Account', static_pages_myaccount_path %>
+  <% end %>
   <%= link_to "Logout Account", destroy_user_session_path, :method=>:delete %>
+
 <% else %>
   <%= link_to "Login Account", new_user_session_path %>
 <% end %>

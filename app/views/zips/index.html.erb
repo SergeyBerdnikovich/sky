@@ -1,0 +1,20 @@
+<h1>Your zip codes</h1>
+
+<table>
+  <tr>
+    <th>Zip code</th>
+    <th></th>
+  </tr>
+
+<% @zips.each do |zip| %>
+  <tr>
+    <td><%= zip.number %></td>
+    <td><b style='color:red'><%= link_to 'x', zip, method: :delete, data: { confirm: 'Are you sure?' } %></b></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Zip', new_zip_path %><p>
+<%= link_to 'Back', vendors_path %>

@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+  account_type : <%= @bank_account.account_type %><p>
+  name : <%= @bank_account.name %><p>
+  routing_number : <%= @bank_account.routing_number %><p>
+  account_number : <%= @bank_account.account_number %><p>
+
+<%= link_to 'Edit', edit_bank_account_path(@bank_account) %> |
+<%= link_to 'Back', vendors_path %>

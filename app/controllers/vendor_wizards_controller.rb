@@ -6,15 +6,16 @@ class VendorWizardsController < ApplicationController
   end
 
   def step2
+    @plans = Plan.all()
   end
 
   def step3
-    @bank_account = current_user.vendor.bank_account || current_user.vendor.build_bank_account
+   @zips = Zip.all()
+   @vendor = current_user.vendor
   end
 
   def step4
-    @profile = current_user.profile
-    @profile.company ? @company = @profile.company : @company = @profile.build_company
+   @vendor = current_user.vendor
   end
 
   def step5
@@ -30,36 +31,38 @@ class VendorWizardsController < ApplicationController
   end
 
   def handler
+    @vendor = current_user.vendor
     respond_to do |format|
       if params[:step] == '2'
+        
+        if params['plan_id']
+        @vendor.update_attribute(:plan_id, params['plan_id'])
         format.html { redirect_to vendor_wizards_step3_path }
-      elsif params[:step] == '3'
-        if current_user.vendor.bank_account
-          if current_user.vendor.bank_account.account_number != params[:re_enter_account_number]
-            format.html { redirect_to vendor_wizards_step3_path, notice: 'Check account number and re enter account number...' }
-          else
-            current_user.vendor.bank_account.update_attributes(params[:bank_account])
-            format.html { redirect_to vendor_wizards_step4_path, notice: 'Order was successfully updated.'}
-          end
         else
-          @bank_account = BankAccount.new(params[:bank_account])
-          unless @bank_account.account_number == params[:re_enter_account_number]
-            format.html { render :action => "step3", notice: 'Check account number and re enter account number...' }
-          else
-            if @bank_account.save
-              format.html { redirect_to vendor_wizards_step4_path, notice: 'Order was successfully updated.'}
-            else
-              format.html { render :action => "step3", notice: 'Save error...' }
-            end
-          end
+        format.html { redirect_to vendor_wizards_step2_path, notice: 'Please select your plan'}          
         end
+        
+      elsif params[:step] == '3'
+        zips = params['zips'].count
+        if zips <= @vendor.plan.zips
+          @vendor.zips.destroy_all
+          params['zips'].each do |z|
+                 @vendor.zips << Zip.find(z)     
+          end
+        format.html { redirect_to vendor_wizards_step4_path }
+        else
+        format.html { redirect_to vendor_wizards_step3_path(:zips => params[:zips]), notice: "Please select appropriate number of zip codes. You may select #{@vendor.plan.zips} codes but selected #{zips} zip codes "}          
+        end
+
       elsif params[:step] == '4'
+
         if current_user.profile.company && current_user.profile.company.update_attributes(params[:company])
         else
           current_user.profile.company = Company.create!(params[:company])
         end
         current_user.profile.update_attributes(params[:profile])
         format.html { redirect_to vendor_wizards_step5_path }
+
       elsif params[:step] == '5'
         format.html { redirect_to vendor_wizards_step6_path }
       elsif params[:step] == '6'
@@ -75,6 +78,7 @@ class VendorWizardsController < ApplicationController
           format.html { redirect_to vendor_wizards_step6_path }
         end
       else
+        raise "Unkown step - #{params['step']}"
         format.html { redirect_to root_path, notice: 'Error' }
       end
     end

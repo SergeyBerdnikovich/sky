@@ -1,0 +1,12 @@
+<h1>Please choose zip codes you want to add</h1>
+<form method='post' action='<%=zips_path()%>'> 
+<% @zips.each do |zip| %>
+<% notshow = @user_zips.include? zip %>
+<% if notshow == false %>
+<%= check_box_tag "zips[]",zip.id %> <%= zip.number %>
+<% end %>
+<% end %>
+<p>
+<input type='submit' name='Add zip codes'>
+</form>
+<%= link_to 'Back', zips_path %>

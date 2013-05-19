@@ -3,9 +3,11 @@
 one:
   name: MyString
   price: 1.5
-  des: MyText
+  features: MyText
+  zips: 1
 
 two:
   name: MyString
   price: 1.5
-  des: MyText
+  features: MyText
+  zips: 1

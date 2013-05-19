@@ -1,5 +1,8 @@
 Sky::Application.routes.draw do
 
+  resources :plans
+
+
   root :to => 'static_pages#welcome'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -35,8 +38,8 @@ Sky::Application.routes.draw do
   # match '/bank_accounts/wizard2' => "bank_accounts#wizard2"
   # match '/profiles/wizard3' => "profiles#wizard3"
   # match '/vendors/wizard5' => "vendors#wizard5"
-  # match '/vendors/wizard6' => "vendors#wizard6"
-
+  match '/vendors/banking' => "vendors#banking"
+ 
   match '/orders/my_orders' => "orders#my_orders"
 
   resources :bank_accounts
@@ -49,9 +52,13 @@ Sky::Application.routes.draw do
 
   resources :properties
 
+  resources :zips
+
   resources :schedules
 
   resources :orders
+
+  resources :vendors
 
   resources :property_types
 

@@ -1,63 +1,34 @@
-<h2 id='step'>Step 4: About company</h2>
-<div id='vendor_step3'>
-  <%= form_for @profile, :url => vendor_wizards_handler_path(:step => 4) do |f| %>
-    <div id='top_tables'>
-      <div id='company_address'>
-        <p id='title'>Company Address</p>
-        <hr />
-        <p>
-          <%= f.label :name, 'Company Name' %><br />
-          <%= f.text_field :name, :class => 'text' %>
-        </p>
-        <hr />
-        <p id='address'>
-          <%= f.label :address1, 'Address' %><br />
-          <%= f.text_field :address1, :class => 'text' %>
-        </p>
-        <p id='city'>
-          <%= f.label :city %><br />
-          <%= f.text_field :city, :class => 'text' %>
-        </p>
-        <p id='state'>
-          <%= f.label :state %><br />
-          <%= f.text_field :state, :class => 'text' %>
-        </p>
-        <p id='zip'>
-          <%= f.label :zip %><br />
-          <%= f.text_field :zip, :class => 'text' %>
-        </p>
-      </div>
-      <div id='company_ownership'>
-        <p id='title'>Company Ownership</p>
-        <hr />
-        <%= fields_for :company do |ff| %>
-        <p id='company_name'>
-          <%= ff.label :fname, 'Owner Name' %>
-        </p>
-        <p id='fname'>
-          <%= ff.text_field :fname, :class => 'text' %>
-        </p>
-        <p id='lname'>
-          <%= ff.text_field :lname, :class => 'text' %>
-        </p>
-        <hr />
-        <p id='phone'>
-          <%= f.label :phone %><br />
-          <%= f.text_field :phone, :class => 'text' %>
-        </p>
-        <p id='fax'>
-          <%= ff.label :fax %><br />
-          <%= ff.text_field :fax, :class => 'text' %>
-        </p>
-        <% end %>
-        <p id='email'>
-          <%= f.label :email %><br />
-          <%= f.email_field :email, :class => 'text' %>
-        </p>
-      </div>
-    <div>
-
-    <div id='clear'></div>
-    <%= f.submit 'Next', :class => 'blue_button' %>
-  <% end %>
+<h2 id='step'>Step 4: Payment</h2>
+<div class='wideblock'>
+  <h3>Please check your details and make a payment</h3>
 </div>
+<table>
+  <tr><td>
+    <table>
+    <tr><td colspan=2><h4>Your plan:</h4></td></tr>
+    <tr>
+    <td><b>Name: </b></td> <td><%= @vendor.plan.name %></td>
+    </tr>
+    <tr>
+    <td><b>Price: </b></td> <td><%= @vendor.plan.price %></td>
+    </tr>
+    <tr>
+    <td><b>Zip codes: </b></td> <td><%= @vendor.plan.zips %></td>
+    </tr>
+    <tr>
+    <td valign=top><b>Features: </b></td><td> <%= @vendor.plan.features.gsub(/\n/,"<br>").html_safe %></td>
+    </tr>
+    <tr><td></td><td> </td></tr>
+    </table>
+  
+  </td><td valign=top>
+    <h4>Your zip codes:</h4>
+    <% @vendor.zips.each do |z| %>
+       <%= z.number %> 
+    <% end %>
+  </td></tr>
+</table>
+
+ <%= link_to "Change plan", vendor_wizards_step2_path %><br>
+  <%= link_to "Change zip codes", vendor_wizards_step3_path %><br>
+<h2><%= link_to "Pay and continue", vendors_path()%></21>

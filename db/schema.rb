@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513133527) do
+ActiveRecord::Schema.define(:version => 20130515122711) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name"
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(:version => 20130513133527) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "schedule_id"
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "features"
+    t.integer  "zips"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "profiles", :force => true do |t|
@@ -154,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20130513133527) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "number_of_zips"
+    t.integer  "vendor_id"
   end
 
   create_table "users", :force => true do |t|
@@ -189,6 +199,7 @@ ActiveRecord::Schema.define(:version => 20130513133527) do
     t.integer  "tarif_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "plan_id"
   end
 
   create_table "vendors_zips", :force => true do |t|

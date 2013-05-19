@@ -1,2 +1,31 @@
-<h2 id='step'>Step 2: Pricing schedule</h2>
-<p><%= link_to 'Next', vendor_wizards_handler_path(:step => 2) %></p>
+<h2 id='step'>Step 1: Please select your Plan</h2><p>
+<div id="notice"><%= notice %></div>
+<table class='table1'>
+	<tr><th class=ttitle> Details </th>
+
+<% @plans.each do |plan| %>
+<th class=ttitle>
+<%= plan.name %>
+</th>
+<% end %>
+</tr>
+
+<tr><td></td>
+<% @plans.each do |plan| %>
+<td class='tbody'>
+<%= plan.price %><br>
+<ul><li>
+<%= plan.features.strip.gsub(/\n/,"</li><li>").html_safe %><br>
+</li>
+</ul>
+</td>
+<% end %>
+</tr>
+<tr><td></td>
+<% @plans.each do |plan| %>
+<td>
+<%= link_to "Choose #{plan.name}", vendor_wizards_handler_path(:step => 2,:plan_id => plan.id) %>
+</td>
+<% end %>
+</tr>
+</table>

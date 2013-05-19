@@ -4,6 +4,32 @@ body {
   background-color: #fafafa;
   font-family: 'PT Sans', sans-serif;
 }
+
+.table1{
+
+ 
+    
+
+}
+.ttitle{
+      font-size: 120%;
+      background-color: #fc5103;
+      padding: 20px 20px 20px 20px;
+    }
+.tbody{
+vertical-align: top;
+padding: 20px 20px 20px 20px;
+text-align: left;
+}
+.wideblock{
+  background-color: #fc5103;
+      padding: 20px 20px 20px 20px;
+      width: 100%
+}
+li{
+  text-align: left
+}
+
 #container {
   width: 999px;
   padding-bottom: 100px;
