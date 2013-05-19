@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Size from:</b>
+  <%= @price.size_from %>
+</p>
+
+<p>
+  <b>Size to:</b>
+  <%= @price.size_to %>
+</p>
+
+<p>
+  <b>Per sq:</b>
+  <%= @price.per_sq %>
+</p>
+
+<p>
+  <b>Flate:</b>
+  <%= @price.flate %>
+</p>
+
+
+<%= link_to 'Edit', edit_price_path(@price) %> |
+<%= link_to 'Back', prices_path %>

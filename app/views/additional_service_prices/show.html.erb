@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Additional service:</b>
+  <%= @additional_service_price.additional_service_id %>
+</p>
+
+<p>
+  <b>Vendoir if:</b>
+  <%= @additional_service_price.vendoir_if %>
+</p>
+
+<p>
+  <b>Per sq:</b>
+  <%= @additional_service_price.per_sq %>
+</p>
+
+<p>
+  <b>Flat:</b>
+  <%= @additional_service_price.flat %>
+</p>
+
+
+<%= link_to 'Edit', edit_additional_service_price_path(@additional_service_price) %> |
+<%= link_to 'Back', additional_service_prices_path %>

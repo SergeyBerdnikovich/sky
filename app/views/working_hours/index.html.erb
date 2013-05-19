@@ -1,0 +1,26 @@
+<h1>Listing working_hours</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Open</th>
+    <th>Close</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @working_hours.each do |working_hour| %>
+  <tr>
+    <td><%= working_hour.day %></td>
+    <td><%= working_hour.open %></td>
+    <td><%= working_hour.close %></td>
+    <td><%= link_to 'Edit', edit_working_hour_path(working_hour) %></td>
+    <td><%= link_to 'Destroy', working_hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Working hour', new_working_hour_path %>

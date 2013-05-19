@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  size_from: 1
+  size_to: 1
+  per_sq: 1.5
+  flate: 1.5
+
+two:
+  size_from: 1
+  size_to: 1
+  per_sq: 1.5
+  flate: 1.5

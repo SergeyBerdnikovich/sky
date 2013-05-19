@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515122711) do
+ActiveRecord::Schema.define(:version => 20130519145630) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(:version => 20130515122711) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "additional_service_prices", :force => true do |t|
+    t.integer  "additional_service_id"
+    t.integer  "vendoir_if"
+    t.float    "per_sq"
+    t.float    "flat"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "additional_services", :force => true do |t|
+    t.text     "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -89,6 +104,16 @@ ActiveRecord::Schema.define(:version => 20130515122711) do
     t.integer  "zips"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "prices", :force => true do |t|
+    t.integer  "size_from"
+    t.integer  "size_to"
+    t.float    "per_sq"
+    t.float    "flat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "vendor_id"
   end
 
   create_table "profiles", :force => true do |t|
@@ -205,6 +230,15 @@ ActiveRecord::Schema.define(:version => 20130515122711) do
   create_table "vendors_zips", :force => true do |t|
     t.integer "vendor_id"
     t.integer "zip_id"
+  end
+
+  create_table "working_hours", :force => true do |t|
+    t.integer  "day"
+    t.integer  "open"
+    t.integer  "close"
+    t.integer  "vendor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "zips", :force => true do |t|

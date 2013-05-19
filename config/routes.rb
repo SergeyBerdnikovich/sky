@@ -1,5 +1,17 @@
 Sky::Application.routes.draw do
 
+  resources :additional_service_prices
+
+
+  resources :additional_services
+
+
+  resources :prices
+
+
+  resources :working_hours
+
+
   resources :plans
 
 
