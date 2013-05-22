@@ -1,2 +1,0 @@
-class AdditionalServicesController < ApplicationController
-end

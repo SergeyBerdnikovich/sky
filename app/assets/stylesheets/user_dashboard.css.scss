@@ -1,0 +1,127 @@
+// Place all the styles related to the user_dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#db_head.user_dashboard {
+  background-color: #0CA9CB;
+  height: 70px;
+  margin-top: -11px;
+}
+#db_head.user_dashboard p {
+  color: white;
+  font: 220% sans-serif;
+  text-transform: uppercase;
+  line-height: 10%;
+  float: left;
+  margin: 32px 0 0 5px;
+}
+.db_button {
+  padding: 5px 10px;
+  background-color: #C52379;
+  text-transform: uppercase;
+  font: 130% sans-serif;
+  margin: 20px 0 10px 20px;
+  color: white;
+  text-decoration: none;
+  float: left;
+}
+.db_button:hover {
+  background-color: #0CA9CB;
+  color: #C52379;
+}
+#db_buttons {
+  height: 80px;
+}
+#db_table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#head td {
+  border: 1px solid white;
+}
+#db_table #head {
+  background-color: #6F6F6F;
+  height: 30px;
+}
+tr #property_id {
+  border-left: none;
+}
+tr #id {
+  border: none;
+}
+tr#before_data {
+  width: 100%;
+  height: 10px;
+  background-color: #F1F1F1;
+}
+#new_row {
+  height: 15px;
+  background-color: #F1F1F1;
+}
+#new_row td {
+  border: 1px solid #C3C3C3;
+}
+#pagination {
+  height: 20px;
+  background-color: #B0B0B0;
+  border-bottom: 1px solid #6F6F6F;
+}
+#group1 a {
+  padding: 12px 15px;
+  background-color: #C52379;
+  text-transform: uppercase;
+  font: 110% sans-serif;
+  margin: 0 5px;
+  color: white;
+  text-decoration: none;
+  float: left;
+}
+#group1 a:hover {
+  background-color: #0CA9CB;
+  color: #C52379;
+}
+#group2 a {
+  padding: 12px 20px;
+  background-color: #0CA9CB;
+  text-transform: uppercase;
+  font: 110% sans-serif;
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  float: left;
+}
+#group2 a:hover {
+  background-color: #C52379;
+  color: #0CA9CB;
+}
+.clear {
+  clear: both;
+}
+#group1 {
+  border: 1px solid #C3C3C3;
+  float: left;
+  padding: 25px 50px;
+  margin: 0 20px;
+  width: 60%;
+}
+#group2 {
+  border: 1px solid #C3C3C3;
+  float: left;
+  padding: 25px 20px;
+}
+#footer_buttons {
+  margin: 20px 0 140px 0;
+}
+#db_table table {
+  text-transform: uppercase;
+  font: 110% sans-serif;
+}
+#head {
+  color: white;
+}
+td.first {
+  border-left: 1px solid #C3C3C3;
+}
+td.last {
+  border-right: 1px solid #C3C3C3;
+}

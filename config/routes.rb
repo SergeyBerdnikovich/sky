@@ -1,5 +1,7 @@
 Sky::Application.routes.draw do
 
+  get "user_dashboard/dashboard"
+
   resources :additional_service_prices
 
 

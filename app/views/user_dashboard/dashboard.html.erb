@@ -1,0 +1,94 @@
+<div id='db_head' class='user_dashboard'>
+  <p>Dashboard</p>
+</div>
+<div id='db_buttons'>
+  <a href='#' class='db_button'>Add New Property</a>
+  <a href='#' class='db_button'>Account Details</a>
+  <a href='#' class='db_button'>Manage Billing</a>
+  <a href='#' class='db_button'>Notifications</a>
+  <a href='#' class='db_button'>Security</a>
+</div>
+<div id='db_table'>
+  <table>
+    <tr id='head'>
+      <td id='id'></td>
+      <td id='property_id'>Property id</td>
+      <td>Phone</td>
+      <td>Property Address</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Zip</td>
+      <td>Company</td>
+      <td>Contact</td>
+      <td>Plan</td>
+      <td>Frequency</td>
+      <td>Price</td>
+      <td></td>
+    </tr>
+    <tr id='before_data'>
+      <td></td>
+    </tr>
+    <% @properties.each_with_index do |property, i| %>
+      <tr>
+        <td class='first'><%= i+1 %></td>
+        <td><%= property.id %></td>
+        <td><%= property.profile.try(:phone) %></td>
+        <td><%= property.profile.try(:address1) %></td>
+        <td><%= property.profile.try(:city) %></td>
+        <td><%= property.profile.try(:state) %></td>
+        <td><%= property.profile.try(:zip) %></td>
+        <% property.orders.each_with_index do |order, i| %>
+          <% if i > 0 %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          <% end %>
+            <td><%= order.vendor.try(:user).try(:profile).try(:name) %></td>
+            <td><%= order.vendor.try(:user).try(:profile).try(:company).try(:lname) %></td>
+            <td><%= order.vendor.try(:plan).try(:name) %></td>
+            <td>Frequency</td>
+            <td>$<%= order.vendor.try(:plan).try(:price) %></td>
+            <td class='last'></td>
+          <% if i > 0 %>
+            </tr>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <table>
+    <tr id='new_row'>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+<div id='pagination'></div>
+<div>* To suspend service fora property; enter "0" under frequency and save</div>
+<div id='footer_buttons'>
+  <div id='group1'>
+    <a href="#">Print Selected Invoices</a>
+    <a href="#">Export To Excel</a>
+    <a href="#">Export To Pdf</a>
+  </div>
+  <div id='group2'>
+    <a href="#">Save Changes</a>
+  </div>
+</div>
+<div class='clear'></div>

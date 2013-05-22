@@ -3,7 +3,7 @@ class Vendor < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :plan
-  has_many :tarif
+  belongs_to :tarif
   has_many :working_hour
   has_many :price
   has_one :bank_account
