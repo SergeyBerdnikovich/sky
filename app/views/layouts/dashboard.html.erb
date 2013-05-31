@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sky</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Vollkorn">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans">
+</head>
+<body>
+  <div id='main'>
+  <div id='db_container'>
+    <div id='db_header'>
+      <div id='head1'>
+        <div id='db_logo'>
+          <%= link_to image_tag('/assets/dashboard/logo.png'), root_path %>
+        </div>
+        <div id='user_name'>
+          <span>Welcome</span>, Joann!
+        </div>
+        <div id='mini_navigation'>
+          <div id='logout'><%= link_to image_tag('/assets/dashboard/logof.png'), root_path %></div>
+          <div id='settings'><%= link_to image_tag('/assets/dashboard/settings.png'), root_path %></div>
+          <div id='profile'><%= link_to image_tag('/assets/dashboard/user.png'), root_path %></div>
+          <div id='question'><%= link_to image_tag('/assets/dashboard/question.png'), root_path %></div>
+        </div>
+      </div>
+      <div id='head2'>
+        <%= link_to image_tag('/assets/dashboard/dashboard_icon.png'), root_path %>
+        <span>Dashboard</span>
+      </div>
+      <div id='head3'>
+        <div id='navigation'>
+          <div id='table'>
+            <table>
+              <tr>
+                <td><p><%= link_to image_tag('/assets/dashboard/house.png'), root_path %></p></td>
+                <td><p><%= link_to image_tag('/assets/dashboard/calendar.png'), root_path %></p></td>
+                <td><p id='mail'><%= link_to image_tag('/assets/dashboard/mail.png'), root_path %></p></td>
+                <td><p><%= link_to image_tag('/assets/dashboard/alarm_clock.png'), root_path %></p></td>
+                <td><p><%= link_to image_tag('/assets/dashboard/money.png'), root_path %></p></td>
+                <td><p><%= link_to image_tag('/assets/dashboard/metrics.png'), root_path %></p></td>
+                <td><p><%= link_to image_tag('/assets/dashboard/notifications.png'), root_path %></p></td>
+                <td><p id='community'><%= link_to image_tag('/assets/dashboard/community.png'), root_path %></p></td>
+              </tr>
+              <tr>
+                <td>Properties</td>
+                <td>Calendar</td>
+                <td>Mail</td>
+                <td>Reminders</td>
+                <td>Payments</td>
+                <td>Metrics</td>
+                <td>Notifications</td>
+                <td>Community</td>
+              </tr>
+            </table>
+          </div>
+          <div id='current_bill'>
+            <p id='title'><span id='cur_bil'>Current Bill</span></p>
+            <p id='dollar_image'><%= link_to image_tag('/assets/dashboard/dollar.png'), root_path %></p>
+            <span id='balance'>$37.00</span>
+            <div class='clear'></div>
+            <p id='line'></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='clear'></div>
+    <div id='db_center_zone'>
+      <div id='db_content'>
+        <%= yield %>
+      </div>
+    </div>
+    <div class='clear'></div>
+  </div>
+</div>
+  <div id='db_footer'>
+      <div id='db_footer_bird'>
+        <%= image_tag '/assets/bird.png' %>
+      </div>
+    </div>
+</body>
+</html>

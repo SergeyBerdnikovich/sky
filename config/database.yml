@@ -4,13 +4,10 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: sky
+  adapter: sqlite3
+  database: db/dev3.sqlite3
   pool: 5
-  username: root
-  password:  
+  timeout: 5000
 
 test:
   adapter: mysql2
@@ -19,7 +16,7 @@ test:
   database: sky_test
   pool: 5
   username: root
-  password:  
+  password:
 
 production:
   adapter: mysql2
@@ -28,5 +25,5 @@ production:
   database: sky
   pool: 5
   username: root
-  password:  
+  password:
 

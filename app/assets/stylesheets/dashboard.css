@@ -1,0 +1,165 @@
+body, #db_container {
+  margin: 0;
+  padding: 0;
+  max-height: 100%;
+}
+#head1 {
+  height: 70px;
+  background-color: #0982C7;
+  margin: 0;
+  padding: 3px;
+  color: white;
+}
+#db_logo {
+  float: left;
+}
+#db_logo a:hover {
+  background: none;
+}
+#user_name {
+  padding: 25px;
+  float: left;
+  font: 130% sans-serif;
+}
+#user_name span {
+  font: bold 120% sans-serif;
+}
+#mini_navigation {
+  float: right;
+  padding: 15px;
+}
+#mini_navigation div {
+  float: right;
+  margin: 0 5px;
+}
+#mini_navigation div a:hover {
+  background: none;
+}
+#head2 {
+  background-color: #F2F2F2;
+  height: 40px;
+  margin: 0;
+  padding: 3px;
+  color: #666666;
+  font: 230% sans-serif;
+}
+#head2 img {
+  float: left;
+}
+#head2 span {
+  float: left;
+  padding-left: 5px;
+}
+#head3 {
+  height: 100px;
+  width: 100%;
+  border-top: 1px solid #BBBBBB;
+  border-bottom: 1px solid #BBBBBB;
+}
+#navigation {
+  /*width: 79%;*/
+  height: 100%;
+  /*float: left;*/
+  margin: 0;
+  /*padding: 5px 0 5px 7px;*/
+}
+#navigation #table {
+  /*width: 80%;*/
+  float: left;
+}
+#navigation a:hover {
+  background: none;
+}
+#current_bill {
+  float: right;
+  width: 190px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid #BBBBBB;
+  border-left: 1px solid #BBBBBB;
+}
+#current_bill span#balance {
+  color: #BBBBBB;
+  font: 190% sans-serif;
+  float: right;
+  margin: 7px;
+}
+#current_bill p#title {
+  width: 100%;
+  font: 130% sans-serif;
+  margin: 0;
+  background-color: #4891DC;
+  color: white;
+  padding: 0px;
+  height: 20px;
+  border: none;
+}
+#current_bill p#title span#cur_bil {
+  margin-left: 5px;
+}
+#current_bill p#dollar_image {
+  border: none;
+  float: left;
+}
+#current_bill p#line {
+  background-color: #E1E1E1;
+  height: 10px;
+  margin: 9px 0 0 0;
+  width: 99%;
+  padding: 0;
+}
+#current_bill img {
+  float: left;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 0 10px;
+}
+#navigation img {
+  margin: 0;
+  max-width: 50px;
+  max-height: 50px;
+}
+#navigation p {
+  border: 1px solid #DCDCDC;
+  width: 70px;
+  height: 50px;
+  padding: 5px;
+  margin: 0 3px;
+}
+#navigation tr {
+  text-align: center;
+}
+#db_footer_bird img {
+  float: right;
+  max-height: 90px;
+  margin-right: 20px;
+}
+#db_center_zone {
+  padding: 25px 0;
+}
+#navigation #mail img {
+  margin-top: 5px;
+}
+#navigation #community img {
+  margin-top: 3px;
+}
+
+/*Footer bottom*/
+#db_footer {
+  background-color: #DEE7E2;
+  height: 100px;
+  width: 100%;
+  padding: 5px 0;
+  margin-top: -100px;
+}
+html, body {
+  height: 100%;
+}
+div#main {
+  min-height: 100%;
+}
+div#main div#db_container {
+  padding-bottom:110px;
+}
+/*end Footer bottom*/

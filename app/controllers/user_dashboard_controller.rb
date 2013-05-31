@@ -1,10 +1,8 @@
 class UserDashboardController < ApplicationController
+  layout 'dashboard'
   include IceCube
   def dashboard
     redirect_to root_path and return false unless current_user
-
-
-
     @properties = current_user.properties
   end
 
@@ -23,11 +21,11 @@ class UserDashboardController < ApplicationController
     @events = []
 
     @orders.each{|order|
-    schedule = Schedule.new(start = order.start_date) 
+    schedule = Schedule.new(start = order.start_date)
     schedule.add_recurrence_rule Rule.daily(order.schedule_plan.period).until(DateTime.strptime(enddate,'%s'))
-     schedule.each_occurrence { |t| 
+     schedule.each_occurrence { |t|
      temp_hash = {
-      :id => order.id,    
+      :id => order.id,
       :title => "Lawn service by " + order.vendor.user.profile.name,
       :start => t,
       #:end => (self.start_date + 23.hours).rfc822,
@@ -38,7 +36,7 @@ class UserDashboardController < ApplicationController
       @events.push(temp_hash)
 
        }
-    
+
     }
     # @events = @events.after(params['start']) if (params['start'])
     # @events = @events.before(params['end']) if (params['end'])
@@ -55,11 +53,11 @@ class UserDashboardController < ApplicationController
     @events = []
     @orders = Order.all
     @orders.each{|order|
-    schedule = Schedule.new(start = order.start_date) 
+    schedule = Schedule.new(start = order.start_date)
     schedule.add_recurrence_rule Rule.daily(order.schedule_plan.period)
-    schedule.next_occurrences(10, Time.now).each { |t| 
+    schedule.next_occurrences(10, Time.now).each { |t|
      temp_hash = {
-      :id => order.id,    
+      :id => order.id,
       :title => "Lawn service by " + order.vendor.user.profile.name,
       :start => t,
       #:end => (self.start_date + 23.hours).rfc822,
@@ -70,7 +68,7 @@ class UserDashboardController < ApplicationController
       @events.push(temp_hash)
 
        }
-    
+
     }
   end
 end
