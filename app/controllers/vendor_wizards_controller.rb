@@ -7,10 +7,12 @@ class VendorWizardsController < ApplicationController
 
   def step2
     @plans = Plan.all()
+    session[:zip] = params[:zip]
   end
 
   def step3
-   @zips = Zip.all()
+   current_zip =  ZipCode.where('zipcode = ?',session[:zip]).first
+   @zips = ZipCode.where('city = ? and state = ?',current_zip.city, current_zip.state)
    @vendor = current_user.vendor
   end
 
@@ -45,9 +47,9 @@ class VendorWizardsController < ApplicationController
       elsif params[:step] == '3'
         zips = params['zips'].count
         if zips <= @vendor.plan.zips
-          @vendor.zips.destroy_all
+          @vendor.zip_code.destroy_all
           params['zips'].each do |z|
-                 @vendor.zips << Zip.find(z)     
+                 @vendor.zip_code << ZipCode.find(z)     
           end
         format.html { redirect_to vendor_wizards_step4_path }
         else

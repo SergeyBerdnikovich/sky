@@ -1,6 +1,16 @@
 Sky::Application.routes.draw do
 
+  resources :vendors_zip_codes
+
+
+  resources :zip_codes
+
+
   get "user_dashboard/dashboard"
+
+  get "user_dashboard/calendar"
+  
+  get "user_dashboard/calendar_events"
 
   resources :additional_service_prices
 

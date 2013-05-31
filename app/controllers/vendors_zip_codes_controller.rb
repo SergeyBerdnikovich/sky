@@ -1,0 +1,2 @@
+class VendorsZipCodesController < ApplicationController
+end

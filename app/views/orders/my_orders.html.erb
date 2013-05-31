@@ -1,4 +1,4 @@
-<h1>All Orders</h1>
+<h1>My Orders</h1>
 <% @orders.each do |order| %>
 <div>
   <p>property name: <%= order.property.profile.name %></p>
@@ -8,3 +8,4 @@
   <%= link_to 'Show', order_path(order) %>
 </div>
 <% end %>
+<p><%= link_to 'New Order', new_order_path(:id => params[:id]) %></p>

@@ -4,7 +4,7 @@
 <p>Size: <%= @order.size %></p>
 <p>Comment: <%= @order.comment %></p>
 <p>Schedule:</p>
-<p>Name: <%= @order.schedule.try(:name) %></p>
-<p>Period: <%= @order.schedule.try(:period) %></p>
+<p>Name: <%= @order.schedule_plan.try(:name) %></p>
+<p>Period: <%= @order.schedule_plan.try(:period) %></p>
 
 <p><%= link_to 'Edit Order', edit_order_path(@order) %></p>

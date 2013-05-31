@@ -1,14 +1,14 @@
 class OrdersController < ApplicationController
   def edit
     @order = Order.find(params[:id])
-    @vendors_zip = Zip.where(:number => @order.property.profile.zip).first
-    @vendors = @vendors_zip.try(:vendors) || []
-    @schedule = @order.schedule || @order.build_schedule
+    #@vendors_zip = Zip.where(:number => @order.property.profile.zip).first
+    @vendors = Vendor.all
+    @schedule = @order.schedule_plan || @order.build_schedule_plan
   end
 
   def new
     @order = Order.new(:property_id => params[:id])
-    @vendors_zip = Zip.where(:number => @order.property.profile.zip).first
+  #  @vendors_zip = Zip.where(:number => @order.property.profile.zip).first
     @vendors = @vendors_zip.try(:vendors) || []
     @schedule = @order.build_schedule
   end

@@ -1,4 +1,4 @@
-<h2 id='step'>New Order</h2>
+<h2 id='step'>Edit Order</h2>
 
 <div id='border_content' class='edit_order'>
   <%= form_for @order do |f| %>
@@ -6,9 +6,9 @@
   <%= hidden_field_tag :redirect_to, 'order' %>
     <table>
       <tr>
-        <td class='order_title'><%= f.label :schedule_id %>:</td>
+        <td class='order_title'><%= f.label :schedule_plan_id %>:</td>
         <td>
-          <%= f.select :schedule_id, options_from_collection_for_select(Schedule.all, "id", "name", @order.schedule.try(:id)), :class => 'text' %>
+          <%= f.select :schedule_plan_id, options_from_collection_for_select(SchedulePlan.all, "id", "name", @order.schedule_plan.try(:id)), :class => 'text' %>
         </td>
       </tr>
       <tr>
@@ -26,7 +26,7 @@
             <p>
               <%= f.radio_button :vendor_id, vendor.id %>
               Name: <%= vendor.user.profile.name %>
-              Price: <%= vendor.tarif.price %>$
+              
             </p>
           <% end %>
         </td>

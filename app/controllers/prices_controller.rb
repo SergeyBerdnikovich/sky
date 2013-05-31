@@ -4,6 +4,8 @@ class PricesController < ApplicationController
   def index
     @prices = current_user.vendor.price
 
+    @additional_service = AdditionalService.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @prices }

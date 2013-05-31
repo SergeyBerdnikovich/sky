@@ -7,19 +7,23 @@
     <%= f.hidden_field :property_id %>
     <div id="slider-range" style='width:350px'></div>
   </center></p><br>
-
+  <center><p>
+    <label>Additional service:</label><br>
+          <% AdditionalService.all.each do |serv| %>
+            <%= check_box_tag serv.id %><%= serv.name %><br>
+            <% end %>
+  </center></p><br>
     <table>
       <tr>
         <th></th>
         <th>Name</th>
-        <th>Address</th>
         <th>Rating</th>
         <th>Reviews</th>
         <th>Price</th>
-        <th>Jobs done</th>
-        <th>Profile</th>
+        <th>Additional service:</th>
       </tr>
     <% @vendors.each_with_index do |vendor, i| %>
+   <% if vendor.price.size != 0 %>
         <tr>
           <td>
             <% if f.object.vendor_id %>
@@ -28,15 +32,18 @@
               <%= f.radio_button :vendor_id, vendor.id, :checked => (i == 0 ? true : false) %>
             <% end %>
           </td>
-          <td><%= vendor.user.profile.name %></td>
-          <td><%= vendor.user.profile.address1 %></td>
+          <td><%= link_to vendor.user.profile.name, profile_path(vendor.user.profile) %></td>      
           <td>1</td>
           <td>1</td>
-          <td>10</td>
-          <td>Price: <%= vendor.tarif.price %>$</td>
-          <td><%= link_to 'Show profile', profile_path(vendor.user.profile) %></td>
-        </tr>
+          <td>Price: $$$ <% vendor.price %>$</td>
+          <td>
+            <% AdditionalService.all.each do |serv| %>
+            <%= serv.name %>: $$$<br>
+            <% end %>
 
+          </td>
+        </tr>
+     <%end %>
     <% end %>
   </table>
 </div>

@@ -20,15 +20,15 @@
       </tr>
       <tr>
         <td class='order_title'><%= f.label :city %>:</td>
-        <td><%= f.text_field :city, :class => 'text' %></td>
+        <td><%= f.text_field :city, :class => 'text', :value => @city %></td>
       </tr>
       <tr>
         <td class='order_title'><%= f.label :state %>:</td>
-        <td><%= f.text_field :state, :class => 'text' %></td>
+        <td><%= f.text_field :state, :class => 'text', :value => @state %></td>
       </tr>
       <tr>
         <td class='order_title'><%= f.label :zip %>:</td>
-        <td><%= f.text_field :zip, :class => 'text' %></td>
+        <td><%= f.text_field :zip, :class => 'text' , :value => params[:zip] %></td>
       </tr>
     </table>
 </div>

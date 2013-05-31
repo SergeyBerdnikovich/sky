@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519145630) do
+ActiveRecord::Schema.define(:version => 20130530002002) do
 
   create_table "account_types", :force => true do |t|
     t.string   "name"
@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(:version => 20130519145630) do
     t.datetime "start_date"
     t.integer  "size"
     t.text     "comment"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "schedule_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "schedule_plan_id"
   end
 
   create_table "plans", :force => true do |t|
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20130519145630) do
     t.integer  "size"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "profile_id"
   end
 
   create_table "property_types", :force => true do |t|
@@ -157,7 +158,7 @@ ActiveRecord::Schema.define(:version => 20130519145630) do
     t.integer "user_id"
   end
 
-  create_table "schedules", :force => true do |t|
+  create_table "schedule_plans", :force => true do |t|
     t.string   "name"
     t.integer  "period"
     t.datetime "created_at", :null => false
@@ -181,14 +182,6 @@ ActiveRecord::Schema.define(:version => 20130519145630) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "tarifs", :force => true do |t|
-    t.float    "price"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.integer  "number_of_zips"
-    t.integer  "vendor_id"
   end
 
   create_table "users", :force => true do |t|
@@ -227,6 +220,13 @@ ActiveRecord::Schema.define(:version => 20130519145630) do
     t.integer  "plan_id"
   end
 
+  create_table "vendors_zip_codes", :force => true do |t|
+    t.integer  "vendor_id"
+    t.integer  "zip_code_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "vendors_zips", :force => true do |t|
     t.integer "vendor_id"
     t.integer "zip_id"
@@ -237,6 +237,16 @@ ActiveRecord::Schema.define(:version => 20130519145630) do
     t.integer  "open"
     t.integer  "close"
     t.integer  "vendor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "zip_codes", :force => true do |t|
+    t.integer  "zipcode"
+    t.string   "city"
+    t.string   "state"
+    t.float    "lat"
+    t.float    "long"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -2,9 +2,9 @@
   <p>Dashboard</p>
 </div>
 <div id='db_buttons'>
-  <a href='#' class='db_button'>Add New Property</a>
-  <a href='#' class='db_button'>Account Details</a>
-  <a href='#' class='db_button'>Manage Billing</a>
+  <%= link_to "Add New Property", new_property_path(), :class => :db_button %>
+  <%= link_to "Account Details", edit_profile_path(current_user.profile), :class => :db_button %>
+  <%= link_to "Manage Billing", orders_my_orders_path(), :class => :db_button %>
   <a href='#' class='db_button'>Notifications</a>
   <a href='#' class='db_button'>Security</a>
 </div>
@@ -28,6 +28,7 @@
     <tr id='before_data'>
       <td></td>
     </tr>
+     <% if @properties %>
     <% @properties.each_with_index do |property, i| %>
       <tr>
         <td class='first'><%= i+1 %></td>
@@ -59,6 +60,7 @@
           <% end %>
         <% end %>
       </tr>
+    <% end %>
     <% end %>
   </table>
   <table>

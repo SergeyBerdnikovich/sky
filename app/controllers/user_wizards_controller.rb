@@ -8,12 +8,21 @@ class UserWizardsController < ApplicationController
 
   def step2
     @profile = current_user.properties.first.profile
+    if params[:zip] != nil
+      @zip = ZipCode.where('zipcode = ?',params[:zip]).first
+      @state = @zip.state
+      @city = @zip.city
+    else
+      @state = ""
+      @city = ""
+    end
   end
 
   def step3
     @profile = current_user.properties.first.profile
-    @vendors_zip = Zip.where(:number => @profile.zip).first
-    @vendors = @vendors_zip.try(:vendors) || []
+  #@vendors_zip = Zip.where(:number => @profile.zip).first
+   # @vendors = @vendors_zip.try(:vendors) || []
+   @vendors = Vendor.all
     @order = @profile.profilable.orders.first || @profile.profilable.orders.build
   end
 

@@ -1,0 +1,34 @@
+<%= form_for @property do |f| %>
+  <%= f.hidden_field :user_id %>
+
+  <%= f.fields_for @profile do |property| %>
+  <p> <%= property.label :name %>
+      <%= property.text_field :name %>
+  </p>
+  <p> <%= property.label :description %>
+      <%= property.text_field :description %>
+  </p>
+  <p> <%= property.label :address1 %>
+      <%= property.text_field :address1 %>
+  </p>
+  <p> <%= property.label :address2 %>
+      <%= property.text_field :address2 %>
+  </p>
+  <p> <%= property.label :zip %>
+      <%= property.text_field :zip %>
+  </p>
+  <p> <%= property.label :city %>
+      <%= property.text_field :city %>
+  </p>
+
+  <p> <%= property.label :state %>
+      <%= property.text_field :state %>
+  </p>
+
+  <% end %>
+  <p>
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </p>
+  <%= f.submit 'Next', :class => 'blue_button' %>
+<% end %>

@@ -1,8 +1,12 @@
 <h2 id='step'>Sign In</h2>
 
 <div id='border_content'>
+   <%= devise_error_messages! %>
+   <%- flash.each do |k, v| %>
+  <div id="<%= k %>"><h2><%= v %></h2></div
+    <% end %>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+   
 
     <table>
       <tr>

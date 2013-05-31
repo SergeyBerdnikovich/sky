@@ -1,0 +1,37 @@
+
+<script>
+
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		
+		calendar = $('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			editable: false,
+			events: "/user_dashboard/calendar_events"
+		});
+
+
+		
+	});
+
+</script>
+
+<div id='closest occurences' style='float:left;width:250px'>
+	<h4>Nearest events:</h4>
+	<%  @events.each do |event| %>
+	<div>
+		<%= event[:start].to_s[0,10] %> - <%= event[:title] %>
+	</div>
+	<% end %>
+
+</div>
+<div id='calendar' style='float:right;width: 650px;margin: 0 auto;'></div>
+

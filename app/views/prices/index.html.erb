@@ -1,4 +1,4 @@
-<h1>Listing prices</h1>
+<h1>Your prices:</h1>
 
 <table>
   <tr>
@@ -27,3 +27,25 @@
 <br />
 
 <%= link_to 'New Price', new_price_path %>
+<h2>Additional Service</h2>
+<table>
+  <tr>
+    <th>Additional Service</th>
+    <th>Per sq fit</th>
+    <th>Flat rate</th>
+    <th>Flat</th>
+    <th></th>
+  </tr>
+
+<% @additional_service.each do |serv| %>
+  <tr>
+    <td><%= serv.name %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%=  %></td>
+    <td><%# link_to 'Show', price %></td>
+    <td><%# link_to 'Edit', edit_price_path(price) %></td>
+    <td><%# link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

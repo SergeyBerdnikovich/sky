@@ -10,7 +10,7 @@ You may choose up to <%= @vendor.plan.zips %> codes
 <%  @zips.each do |zip| %>
 <% status = false
 status = params[:zips].include? zip.id.to_s  if params[:zips] %>
-<%= check_box_tag "zips[]",zip.id, status %> <%= zip.number %>
+<%= check_box_tag "zips[]",zip.id, status %> <%= zip.zipcode %>
 <% end %>
 <p><br><p>
 <input type=submit value='Continue'>

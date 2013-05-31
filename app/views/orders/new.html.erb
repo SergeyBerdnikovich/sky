@@ -11,6 +11,11 @@
           <%= f.select :schedule_id, options_from_collection_for_select(Schedule.all, "id", "name", @order.schedule.try(:id)), :class => 'text' %>
         </td>
       </tr>
+      <td class='order_title'><%= f.label :vendor_id %>:</td>
+        <td>
+          <%= f.select :vendor_id, Vendor.all.collect{|x| [x.user.profile.name, x.id]},{}, :class => 'text' %>
+        </td>
+      </tr>
       <tr>
         <td class='order_title'><%= f.label :size %>:</td>
         <td><%= f.text_field :size, :class => 'text' %></td>

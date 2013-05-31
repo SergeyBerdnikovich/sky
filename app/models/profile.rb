@@ -17,8 +17,13 @@ class Profile < ActiveRecord::Base
 
   belongs_to :profilable, polymorphic: true
   has_one :company
+  has_one :property
 
   accepts_nested_attributes_for :company,
                                 :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+#accepts_nested_attributes_for :property
+ accepts_nested_attributes_for :property,
+                                :allow_destroy => :true,
+                              :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 end

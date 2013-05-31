@@ -11,7 +11,7 @@
     </tr>
     <tr>
     <td><b>Price: </b></td> <td><%= @vendor.plan.price %></td>
-    </tr>
+    </tr> 
     <tr>
     <td><b>Zip codes: </b></td> <td><%= @vendor.plan.zips %></td>
     </tr>
@@ -23,8 +23,8 @@
   
   </td><td valign=top>
     <h4>Your zip codes:</h4>
-    <% @vendor.zips.each do |z| %>
-       <%= z.number %> 
+    <% @vendor.zip_code.each do |z| %>
+       <%= z.zipcode %> 
     <% end %>
   </td></tr>
 </table>

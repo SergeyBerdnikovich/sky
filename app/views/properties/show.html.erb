@@ -1,7 +1,16 @@
 <h1>Property show</h1>
 <p>User email: <%= @property.user.email %></p>
-<p>Size: <%= @property.size %></p>
+<p>Name: <%= @property.profile.name %></p>
+<p>description: <%= @property.profile.description %></p>
+<p>address1: <%= @property.profile.address1 %></p>
+<p>address2: <%= @property.profile.address2 %></p>
+<p>city: <%= @property.profile.city %></p>
+<p>state: <%= @property.profile.state %></p>
+<p>zip: <%= @property.profile.zip %></p>
 
+<p>Size: <%= @property.size %></p>
+<p>
 <p><%= link_to 'Edit Property', edit_property_path(@property) %></p>
+<p><%= link_to 'Delete property', @property, method: :delete, data: { confirm: 'Are you sure?' }  %></p>
 <p><%= link_to 'Property Profile', profile_path(@property.profile) %></p>
 <p><%= link_to 'Property Order', orders_path(:id => @property.id) %></p>
